@@ -4,7 +4,7 @@
 [![We recommend IntelliJ IDEA](https://www.elegantobjects.org/intellij-idea.svg)](https://www.jetbrains.com/idea/)
 [![codecov](https://codecov.io/gh/cqfn/eo/branch/master/graph/badge.svg)](https://codecov.io/gh/cqfn/eo)
 
-[![Hits-of-Code](https://hitsofcode.com/github/Graur/eo-tests)](https://hitsofcode.com/view/github/Graur/eo-tests)
+[![Hits-of-Code](https://hitsofcode.com/view/github/Graur/eo-tests?branch=main)](https://hitsofcode.com/view/github/Graur/eo-tests?branch=main)
 ![Lines of code](https://img.shields.io/tokei/lines/github/Graur/eo-tests)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Graur/eo-tests/blob/main/LICENSE.txt)
 
@@ -32,9 +32,9 @@ Some assertions object for testing:
 
 [] > arithmetic-add-works
   assert-equals > @
-    "two numbers"
-    5.add 1
-    6
+    "two numbers"    #test name
+    5.add 1          #actual
+    6                #expected
 ```
 
 output message will be: 
@@ -46,11 +46,11 @@ and return: ```TRUE```
 +package org.eolang
 +alias org.eolang.test.assert-not-equals
 
-[] > arithmetic-add-works
+[] > arithmetic-add-works2
   assert-not-equals > @
-    "two numbers"
-    5.add 1
-    6
+    "two numbers"    #test name
+    5.add 1          #actual
+    6                #expected
 ```
 
 output message will be: 
@@ -64,7 +64,7 @@ and return: ```FALSE```
 +package org.eolang
 +alias org.eolang.test.assert-gt
 
-[] > b
+[] > greater-than-test
   assert-gt > @
     "one number greater than another one"
     5.add 6
@@ -80,7 +80,7 @@ and return: ```TRUE```
 +package org.eolang
 +alias org.eolang.test.assert-lt
 
-[] > b
+[] > less-than-test
   assert-lt > @
     "one number less than another one"
     5.add 6
@@ -96,7 +96,7 @@ and return: ```FALSE```
 +package org.eolang
 +alias org.eolang.test.assert-true
 
-[] > b
+[] > assert-true-test
   assert-true > @
     "number is equal to another number"
     5.eq 5
@@ -111,7 +111,7 @@ and return: ```TRUE```
 +package org.eolang
 +alias org.eolang.test.assert-false
 
-[] > b
+[] > assert-false-test
   assert-false > @
     "number is not equal to another number"
     5.eq 5

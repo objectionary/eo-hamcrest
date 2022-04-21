@@ -1,0 +1,19 @@
++package org.eolang.tests
++rt jvm org.eolang:eo-tests:0.0.0
+
+[msg actual expected] > assert-equals
+  if. > @
+    actual.eq expected
+    seq
+      stdout > success-output-msg
+        sprintf
+          "PASSED: %s\n"
+          msg
+      TRUE
+    seq
+      stdout > failed-output-msg
+        sprintf
+          "FAILED: expected: <%s> equal to: <%s>\n"
+          expected
+          actual
+      FALSE
