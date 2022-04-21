@@ -3,7 +3,13 @@
 
 [msg actual expected] > assert-not-equals
   if. > @
-    actual.eq expected
+    actual.neq expected
+    seq
+      stdout > success-output-msg
+        sprintf
+          "PASSED: %s\n"
+          msg
+      TRUE
     seq
       stdout > failed-output-msg
         sprintf
@@ -11,9 +17,3 @@
           expected
           actual
       FALSE
-    seq
-      stdout > success-output-msg
-        sprintf
-          "PASSED: %s\n"
-          msg
-      TRUE
