@@ -1,13 +1,8 @@
 <img src="https://www.yegor256.com/images/books/elegant-objects/cactus.svg" height="100px" />
 
 [![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
-<!-- [![DevOps By Rultor.com](http://www.rultor.com/b/Graur/eo-tests)](http://www.rultor.com/p/yGraur/eo-tests) -->
 [![We recommend IntelliJ IDEA](https://www.elegantobjects.org/intellij-idea.svg)](https://www.jetbrains.com/idea/)
-
-<!-- [![mvn](https://github.com/Graur/eo-tests/actions/workflows/mvn.yml/badge.svg?branch=master)](https://github.com/yegor256/eo-files/actions/workflows/mvn.yml) -->
-<!-- [![PDD status](http://www.0pdd.com/svg?name=Graur/eo-tests)](http://www.0pdd.com/p?name=yegor256/eo-files) -->
 [![codecov](https://codecov.io/gh/cqfn/eo/branch/master/graph/badge.svg)](https://codecov.io/gh/cqfn/eo)
-<!-- [![Maven Central](https://img.shields.io/maven-central/v/org.eolang/eo-files.svg)](https://maven-badges.herokuapp.com/maven-central/org.eolang/eo-files) -->
 
 [![Hits-of-Code](https://hitsofcode.com/github/Graur/eo-tests)](https://hitsofcode.com/view/github/Graur/eo-tests)
 ![Lines of code](https://img.shields.io/tokei/lines/github/Graur/eo-tests)
@@ -60,7 +55,7 @@ and return: ```TRUE```
 
 output message will be: 
 ```
-expected: <6> not equal to: <6>
+FAILED: expected: <6> not equal to: <6>
 ```
 and return: ```FALSE```
 
@@ -93,7 +88,7 @@ and return: ```TRUE```
 ```
 
 output message will be:
-```expected: <11> less than: <8>```
+```FAILED: expected: <11> less than: <8>```
 and return: ```FALSE```
 
 5) True:
@@ -123,7 +118,7 @@ and return: ```TRUE```
 ```
 
 output message will be:
-```expected: <5.eq 5> is false```
+```FAILED: expected: <5.eq 5> is false```
 and return: ```FALSE```
 
 ## How to Contribute
