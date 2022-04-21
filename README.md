@@ -15,8 +15,116 @@
 
 [EOLANG](https://www.eolang.org) objects for testing.
 
-This is the repository for more convenient testing in EO.
+This is how you can write your own tests in EO:
 
+```
++package org.eolang
++alias org.eolang.test.assert-equals
+
+[] > arithmetic-add-works
+  assert-equals > @
+    "two numbers"
+    5.add 1
+    6
+```
+
+Some assertions object for testing:
+
+1) Equals:
+```
++package org.eolang
++alias org.eolang.test.assert-equals
+
+[] > arithmetic-add-works
+  assert-equals > @
+    "two numbers"
+    5.add 1
+    6
+```
+
+output message will be: 
+```PASSED``` 
+and return: ```TRUE```
+
+2) Not equals:
+```
++package org.eolang
++alias org.eolang.test.assert-not-equals
+
+[] > arithmetic-add-works
+  assert-not-equals > @
+    "two numbers"
+    5.add 1
+    6
+```
+
+output message will be: 
+```
+expected: <6> not equal to: <6>
+```
+and return: ```FALSE```
+
+3) Greater than:
+```
++package org.eolang
++alias org.eolang.test.assert-gt
+
+[] > b
+  assert-gt > @
+    "one number greater than another one"
+    5.add 6
+    8
+```
+
+output message will be:
+```PASSED```
+and return: ```TRUE```
+
+4) Less than:
+```
++package org.eolang
++alias org.eolang.test.assert-lt
+
+[] > b
+  assert-lt > @
+    "one number less than another one"
+    5.add 6
+    8
+```
+
+output message will be:
+```expected: <11> less than: <8>```
+and return: ```FALSE```
+
+5) True:
+```
++package org.eolang
++alias org.eolang.test.assert-true
+
+[] > b
+  assert-true > @
+    "number is equal to another number"
+    5.eq 5
+```
+
+output message will be:
+```PASSED```
+and return: ```TRUE```
+
+6) False:
+```
++package org.eolang
++alias org.eolang.test.assert-false
+
+[] > b
+  assert-false > @
+    "number is not equal to another number"
+    5.eq 5
+```
+
+output message will be:
+```expected: <5.eq 5> is false```
+and return: ```FALSE```
 
 ## How to Contribute
 
