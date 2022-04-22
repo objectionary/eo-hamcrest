@@ -4,7 +4,7 @@
 [![We recommend IntelliJ IDEA](https://www.elegantobjects.org/intellij-idea.svg)](https://www.jetbrains.com/idea/)
 [![codecov](https://codecov.io/gh/cqfn/eo/branch/master/graph/badge.svg)](https://codecov.io/gh/cqfn/eo)
 
-[![Hits-of-Code](https://hitsofcode.com/github/Graur/eo-tests)](https://hitsofcode.com/view/github/Graur/eo-tests)
+[![Hits-of-Code](https://hitsofcode.com/github/graur/eo-hamcrest?branch=main)](https://hitsofcode.com/github/graur/eo-hamcrest/view?branch=main)
 ![Lines of code](https://img.shields.io/tokei/lines/github/Graur/eo-tests)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Graur/eo-tests/blob/main/LICENSE.txt)
 
