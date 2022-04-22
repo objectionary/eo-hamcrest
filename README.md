@@ -8,118 +8,149 @@
 ![Lines of code](https://img.shields.io/tokei/lines/github/Graur/eo-tests)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Graur/eo-tests/blob/main/LICENSE.txt)
 
-[EOLANG](https://www.eolang.org) objects for testing.
 
-This is how you can write your own tests in EO:
+EO-Hamcrest is a framework for writing matcher objects, allowing you to declaratively define "match" rules. This tutorial shows you how to use ```eo-hamcrest``` for [EOLANG](https://www.eolang.org) testing.
+
 
 ```
 +package org.eolang
-+alias org.eolang.test.assert-equals
++alias org.eolang.hamcrest.assert-that
++junit
 
-[] > arithmetic-add-works
-  assert-equals > @
-    "two numbers"
-    5.add 1
-    6
+[] > first-test
+  assert-that
+    "sum of two numbers"
+    4.add 4
+    .equal-to 8
+    .or
+    .less-than 50
+    .and
+    .greater-than 6
 ```
 
-Some assertions object for testing:
+The ```assert-that``` object is a stylized sentence for making a test assertion. In this example, this object has two parameters: string description of the test case (```sum of two numbers```) and the subject of the assertion (```4.add 4```).
+Then you can see the chain of the nested objects, which are called matchers. So you can apply these matchers to the subject of the assertion, whenever you want, to make your test cases more readable.
+After running this test, if the assertion is true, it will return: ```TRUE```. Otherwise, you might get the console output with particular exception message.
 
-1) Equals:
-```
-+package org.eolang
-+alias org.eolang.test.assert-equals
+### Matchers
 
-[] > arithmetic-add-works
-  assert-equals > @
-    "two numbers"
-    5.add 1
-    6
-```
+Hamcrest comes with a library of useful matchers. Here are some of the most important ones:
 
-output message will be: 
-```PASSED``` 
-and return: ```TRUE```
+###### Core
 
-2) Not equals:
 ```
 +package org.eolang
-+alias org.eolang.test.assert-not-equals
++alias org.eolang.hamcrest.assert-that
++junit
 
-[] > arithmetic-add-works
-  assert-not-equals > @
-    "two numbers"
-    5.add 1
-    6
+[] > core-matchers-test
+  assert-that
+    "multiply of two numbers"
+    5.mul 4
+    .is
+    .anything
+    .equal-to 200
+    .described-as "this message will never be seen"
 ```
 
-output message will be: 
-```
-FAILED: expected: <6> not equal to: <6>
-```
-and return: ```FALSE```
+```.anything``` - always matches, useful if you don’t care what the object under test is
+```.described-as <string>``` - decorator to adding custom failure description
+```.is``` - decorator to improve readability
 
-3) Greater than:
-```
-+package org.eolang
-+alias org.eolang.test.assert-gt
-
-[] > b
-  assert-gt > @
-    "one number greater than another one"
-    5.add 6
-    8
-```
-
-output message will be:
-```PASSED```
-and return: ```TRUE```
-
-4) Less than:
+###### Logical
 ```
 +package org.eolang
-+alias org.eolang.test.assert-lt
++alias org.eolang.hamcrest.assert-that
++junit
 
-[] > b
-  assert-lt > @
-    "one number less than another one"
-    5.add 6
-    8
+[] > logical-matchers-test
+  assert-that
+    "substract number from another one"
+    50.sub 10 > assertion
+    .all-of > all-tests-must-be-true
+      assert-that > @
+        ^.assertion
+        .not 5
+      assert-that > @
+        ^.assertion
+        .equal-to 40
+        .or
+        .not 10 
 ```
 
-output message will be:
-```FAILED: expected: <11> less than: <8>```
-and return: ```FALSE```
+```.all-of``` - matches if all matchers match, short circuits (like Java &&)
+```.any-of``` - matches if any matchers match, short circuits (like Java ||)
+```.not``` - matches if the wrapped matcher doesn’t match and vice versa
+```.or``` - matches if either the wrapped matcher or next matcher are TRUE (like Java ||) 
+```.and``` - matches if the wrapped matcher and next matcher are both TRUE (like Java &&)
 
-5) True:
+###### Object
+```.equal-to <object>``` - he subject of the assertion is equal to <object>
+
+###### Collections
 ```
 +package org.eolang
-+alias org.eolang.test.assert-true
++alias org.eolang.hamcrest.assert-that
++junit
 
-[] > b
-  assert-true > @
-    "number is equal to another number"
-    5.eq 5
+[] > collections-test
+  assert-that
+    array
+    .has-item
+      [i]
+        assert-that  > @
+          i
+          .less 4
 ```
+```array <array>``` - test an array’s elements against an array of matchers
 
-output message will be:
-```PASSED```
-and return: ```TRUE```
+```.has-item```, ```.has-items``` - test a collection contains elements
 
-6) False:
+###### Number
+
 ```
 +package org.eolang
-+alias org.eolang.test.assert-false
++alias org.eolang.hamcrest.assert-that
++junit
 
-[] > b
-  assert-false > @
-    "number is not equal to another number"
-    5.eq 5
+[] > numbers-matchers-test
+  assert-that
+    "floating point number closed to 10"
+    31.div 3
+    .close-to 10
+    .or
+    .less-than 20
+  
 ```
 
-output message will be:
-```FAILED: expected: <5.eq 5> is false```
-and return: ```FALSE```
+```.close-to``` - test floating point values are close to a given value
+
+```.greater-than```, ```.less-than``` - test ordering
+
+###### Text
+
+```
++package org.eolang
++alias org.eolang.hamcrest.assert-that
++junit
+
+[] > text-matchers-test
+  assert-that
+    "text matchers test"
+    "Hello World!"
+    .equal-to-ignoring-case "hello world!"
+    .or
+    .starts-with "Hello"
+```
+
+```.equal-to-ignoring-case``` - test string equality ignoring case
+
+```.equal-to-ignoring-white-space``` - test string equality ignoring differences in runs of whitespace
+
+```.contains-string,``` ```.ends-with```, ```.starts-with``` - test string matching
+
+
+More examples are [here](https://github.com/Graur/eo-hamcrest/examples)
 
 ## How to Contribute
 
