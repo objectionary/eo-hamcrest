@@ -5,7 +5,7 @@
 [![codecov](https://codecov.io/gh/cqfn/eo/branch/master/graph/badge.svg)](https://codecov.io/gh/cqfn/eo)
 
 [![Hits-of-Code](https://hitsofcode.com/github/graur/eo-hamcrest?branch=main)](https://hitsofcode.com/github/graur/eo-hamcrest/view?branch=main)
-![Lines of code](https://img.shields.io/tokei/lines/github/Graur/eo-tests)
+![Lines of code](https://img.shields.io/tokei/lines/github/Graur/eo-hamcrest)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Graur/eo-tests/blob/main/LICENSE.txt)
 
 
@@ -81,9 +81,13 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 ```
 
 ```.all-of``` - matches if all matchers match, short circuits (like Java &&)
+
 ```.any-of``` - matches if any matchers match, short circuits (like Java ||)
+
 ```.not``` - matches if the wrapped matcher doesn’t match and vice versa
+
 ```.or``` - matches if either the wrapped matcher or next matcher are TRUE (like Java ||) 
+
 ```.and``` - matches if the wrapped matcher and next matcher are both TRUE (like Java &&)
 
 ###### Object

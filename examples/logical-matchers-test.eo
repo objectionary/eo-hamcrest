@@ -1,0 +1,17 @@
++package org.eolang
++alias org.eolang.hamcrest.assert-that
++junit
+
+[] > logical-matchers-test
+  assert-that
+    "substract one number from another"
+    50.sub 10 > assertion
+    .all-of > all-tests-must-be-true
+      assert-that > @
+        ^.assertion
+        .not 5
+      assert-that > @
+        ^.assertion
+        .equal-to 40
+        .or
+        .not 10
