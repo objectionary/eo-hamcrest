@@ -18,7 +18,7 @@ EO-Hamcrest is a framework for writing matcher objects, allowing you to declarat
 +junit
 
 [] > first-test
-  assert-that
+  assert-that > @
     "sum of two numbers"
     4.add 4
     .equal-to 8
@@ -28,7 +28,8 @@ EO-Hamcrest is a framework for writing matcher objects, allowing you to declarat
     .greater-than 6
 ```
 
-The ```assert-that``` object is a stylized sentence for making a test assertion. In this example, this object has two parameters: string description of the test case (```sum of two numbers```) and the subject of the assertion (```4.add 4```).
+The ```assert-that``` object is a stylized sentence for making a test assertion. 
+In this example, this object has two parameters: string description of the test case (```sum of two numbers```) and the subject of the assertion (```4.add 4```).
 Then you can see the chain of the nested objects, which are called matchers. So you can apply these matchers to the subject of the assertion, whenever you want, to make your test cases more readable.
 After running this test, if the assertion is true, it will return: ```TRUE```. Otherwise, you might get the console output with particular exception message.
 
@@ -44,17 +45,18 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 +junit
 
 [] > core-matchers-test
-  assert-that
+  assert-that > @
     "multiply of two numbers"
     5.mul 4
     .is
     .anything
-    .equal-to 200
     .described-as "this message will never be seen"
 ```
 
 ```.anything``` - always matches, useful if you don’t care what the object under test is
-```.described-as <string>``` - decorator to adding custom failure description
+
+```.described-as``` - decorator to adding custom failure description
+
 ```.is``` - decorator to improve readability
 
 ###### Logical
@@ -65,7 +67,7 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 
 [] > logical-matchers-test
   assert-that
-    "substract number from another one"
+    "substract one number from another"
     50.sub 10 > assertion
     .all-of > all-tests-must-be-true
       assert-that > @
@@ -85,7 +87,7 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 ```.and``` - matches if the wrapped matcher and next matcher are both TRUE (like Java &&)
 
 ###### Object
-```.equal-to <object>``` - he subject of the assertion is equal to <object>
+```.equal-to``` - the subject of the assertion is equal to some object
 
 ###### Collections
 ```
@@ -95,14 +97,14 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 
 [] > collections-test
   assert-that
-    array
+    array 1 5 8 12
     .has-item
       [i]
-        assert-that  > @
+        assert-that > @
           i
           .less 4
 ```
-```array <array>``` - test an array’s elements against an array of matchers
+```array``` - test an array’s elements against an array of matchers
 
 ```.has-item```, ```.has-items``` - test a collection contains elements
 
