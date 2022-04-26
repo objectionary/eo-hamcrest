@@ -30,7 +30,7 @@ EO-Hamcrest is a framework for writing matcher objects, allowing you to declarat
 
 The ```assert-that``` object is a stylized sentence for making a test assertion. 
 In this example, this object has two parameters: string description of the test case (```sum of two numbers```) and the subject of the assertion (```4.add 4```).
-Then you can see the chain of the nested objects, which are called matchers. So you can apply these matchers to the subject of the assertion, whenever you want, to make your test cases more readable.
+Then you can see the chain of the nested objects, which are called matchers. So you can apply these matchers to the subject of the assertion to make your test cases more readable.
 After running this test, if the assertion is true, it will return: ```TRUE```. Otherwise, you might get the console output with particular exception message.
 
 ### Matchers
@@ -156,7 +156,8 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 ```.contains-string,``` ```.ends-with```, ```.starts-with``` - test string matching
 
 
-More examples are [here](https://github.com/Graur/eo-hamcrest/examples)
+More examples are [here](https://github.com/Graur/eo-hamcrest/tree/main/examples)
+
 
 ## How to Contribute
 
