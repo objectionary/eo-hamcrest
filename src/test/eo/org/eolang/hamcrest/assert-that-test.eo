@@ -24,8 +24,42 @@
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-[] > first-test
+[] > two-numbers
   assert-that > @
     "sum of two numbers"
     4.add 4
-    .equal-to 8
+  .equal-to 8
+
+[] > two-arrays
+  assert-that
+    * 1 2 3
+  .equal-to * 1 2 3
+
+[] > two-strings
+  assert-that
+    "123"
+  .equal-to "123"
+
+[] > str-and-obj
+  assert-that
+    "123"
+  .equal-to
+    [] > c
+      "123" > @
+
+[] > two-chars
+  assert-that
+    'a'
+  .equal-to 'a'
+
+[] > two-floats
+  assert-that
+    add.
+      10.5
+      0.6
+  .equal-to 11.1
+
+[] > two-bytes
+  assert-that
+    1.as-bytes
+  .equal-to 1.as-bytes

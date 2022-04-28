@@ -22,7 +22,7 @@
 
 +package org.eolang.hamcrest
 
-[actual] > assert-that
+[reason actual] > assert-that
   actual > @
 
   # Is equal to?
