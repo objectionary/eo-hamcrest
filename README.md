@@ -21,11 +21,11 @@ EO-Hamcrest is a framework for writing matcher objects, allowing you to declarat
   assert-that > @
     "sum of two numbers"
     4.add 4
-    .equal-to 8
+  .equal-to 8
     .or
-    .less-than 50
+      .less-than 50
     .and
-    .greater-than 6
+      .greater-than 6
 ```
 
 The ```assert-that``` object is a stylized sentence for making a test assertion. 
@@ -48,9 +48,9 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
   assert-that > @
     "multiply of two numbers"
     5.mul 4
-    .is
-    .anything
-    .described-as "this message will never be seen"
+  .is
+  .anything
+  .described-as "this message will never be seen"
 ```
 
 ```.anything``` - always matches, useful if you don’t care what the object under test is
@@ -72,12 +72,12 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
     .all-of > all-tests-must-be-true
       assert-that > @
         ^.assertion
-        .not 5
+      .any-of
+        TRUE
+        115.eq 4.add 1
       assert-that > @
         ^.assertion
-        .equal-to 40
-        .or
-        .not 10 
+      .equal-to 40
 ```
 
 ```.all-of``` - matches if all matchers match, short circuits (like Java &&)
@@ -86,12 +86,13 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 
 ```.not``` - matches if the wrapped matcher doesn’t match and vice versa
 
-```.or``` - matches if either the wrapped matcher or next matcher are TRUE (like Java ||) 
-
-```.and``` - matches if the wrapped matcher and next matcher are both TRUE (like Java &&)
 
 ###### Object
 ```.equal-to``` - the subject of the assertion is equal to some object
+
+```.or``` - matches if either the wrapped matcher or next matcher are TRUE (like Java ||) 
+
+```.and``` - matches if the wrapped matcher and next matcher are both TRUE (like Java &&)
 
 ###### Collections
 ```
@@ -102,11 +103,11 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 [] > collections-test
   assert-that
     array 1 5 8 12
-    .has-item
-      [i]
-        assert-that > @
-          i
-          .less 4
+  .has-item
+    [i]
+      assert-that > @
+        i
+      .less-than 4
 ```
 ```array``` - test an array’s elements against an array of matchers
 
@@ -123,9 +124,9 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
   assert-that
     "floating point number closed to 10"
     31.div 3
-    .close-to 10
+  .close-to 10
     .or
-    .less-than 20
+      .less-than 20
   
 ```
 
@@ -144,9 +145,9 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
   assert-that
     "text matchers test"
     "Hello World!"
-    .equal-to-ignoring-case "hello world!"
+  .equal-to-ignoring-case "hello world!"
     .or
-    .starts-with "Hello"
+      .starts-with "Hello"
 ```
 
 ```.equal-to-ignoring-case``` - test string equality ignoring case
