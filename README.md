@@ -22,10 +22,10 @@ EO-Hamcrest is a framework for writing matcher objects, allowing you to declarat
     "sum of two numbers"
     4.add 4
   .equal-to 8
-    .or
-      .less-than 50
-    .and
-      .greater-than 6
+  .or
+  .less-than 50
+  .and
+  .greater-than 6
 ```
 
 The ```assert-that``` object is a stylized sentence for making a test assertion. 
@@ -125,8 +125,8 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
     "floating point number closed to 10"
     31.div 3
   .close-to 10
-    .or
-      .less-than 20
+  .or
+  .less-than 20
   
 ```
 
@@ -146,8 +146,8 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
     "text matchers test"
     "Hello World!"
   .equal-to-ignoring-case "hello world!"
-    .or
-      .starts-with "Hello"
+  .or
+  .starts-with "Hello"
 ```
 
 ```.equal-to-ignoring-case``` - test string equality ignoring case
