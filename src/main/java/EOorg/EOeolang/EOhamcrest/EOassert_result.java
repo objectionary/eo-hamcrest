@@ -27,13 +27,13 @@ package EOorg.EOeolang.EOhamcrest;
 import org.eolang.*;
 
 /**
- * Assert-that.equal-to.
+ * Assert-result.
  *
  * @since 0.1
  * @checkstyle TypeNameCheck (100 lines)
  */
 @SuppressWarnings("PMD.AvoidDollarSigns")
-public class EOassert_that$EOequal_to extends PhDefault {
+public class EOassert_result extends PhDefault {
 
     /**
      * Ctor.
@@ -41,34 +41,18 @@ public class EOassert_that$EOequal_to extends PhDefault {
      * @checkstyle BracketsStructureCheck (200 lines)
      */
     @SuppressWarnings("PMD.ConstructorOnlyInitializesOrCallOtherConstructors")
-    public EOassert_that$EOequal_to(final Phi sigma) {
+    public EOassert_result(final Phi sigma) {
         super(sigma);
-        this.add("x", new AtFree());
+        this.add("reason", new AtFree());
+        this.add("actual", new AtFree());
+        this.add("result", new AtFree());
         this.add("φ", new AtComposite(this, rho -> {
-            final Object expected = new Dataized(rho.attr("x").get()).take();
-            final Object actual = new Dataized(sigma.attr("actual").get()).take();
-            final String reason = new Dataized(sigma.attr("reason").get()).take(String.class);
-            boolean result = expected.equals(actual);
-
-            Phi assertThat = new PhWith(
-                    new PhWith(
-                            new EOassert_that(Phi.Φ),
-                            "reason",
-                            new Data.ToPhi(reason)
-                    ),
-                    "actual",
-                    new Data.ToPhi(actual)
-            );
-
-            new Dataized(new PhWith(
-                    new PhMethod(
-                            assertThat, "set-result"
-                    ),
-                    0,
-                    new Data.ToPhi(result)
-            )).take();
-
-            return assertThat;
+            final boolean result = new Dataized(rho.attr("result").get()).take(Boolean.class);
+            if (result) {
+                return new Data.ToPhi(true);
+            } else {
+                return new Data.ToPhi(false);
+            }
         }));
     }
 }

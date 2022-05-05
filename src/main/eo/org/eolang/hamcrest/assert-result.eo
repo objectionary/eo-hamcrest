@@ -22,18 +22,8 @@
 
 +package org.eolang.hamcrest
 +rt jvm org.eolang:eo-hamcrest:0.0.0
-+alias org.eolang.hamcrest.assert-result
 
-[reason actual] > assert-that
-  assert-result reason actual result > @
-
-  memory > result
-
-  [r] > set-result
-    ^.result.write r > @
-
-  [x] > equal-to /assert-that
-
+[reason actual result] > assert-result /?
 
 
 
