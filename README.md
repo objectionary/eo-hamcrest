@@ -86,13 +86,13 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 
 ```.not``` - matches if the wrapped matcher doesn’t match and vice versa
 
-
-###### Object
-```.equal-to``` - the subject of the assertion is equal to some object
-
 ```.or``` - matches if either the wrapped matcher or next matcher are TRUE (like Java ||) 
 
 ```.and``` - matches if the wrapped matcher and next matcher are both TRUE (like Java &&)
+
+
+###### Object
+```.equal-to``` - the subject of the assertion is equal to some object
 
 ###### Collections
 ```
