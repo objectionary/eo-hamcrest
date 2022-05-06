@@ -69,14 +69,14 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
   assert-that
     "substract one number from another"
     50.sub 10 > assertion
-    .all-of > all-tests-must-be-true > @
+    .all-of > @
       assert-that
-        ^.assertion
+        ^.^.assertion
       .any-of > @
         TRUE
         115.eq 4.add 1
       assert-that
-        ^.assertion
+        ^.^.assertion
       .equal-to 40 > @
 ```
 
