@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2020-2021
+# Copyright (c) 2020-2022 Graur Andrew
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -29,3 +29,28 @@
     "two numbers"
     8
   .equal-to 8 > @
+
+[] > sum-of-two-numbers
+  assert-that
+    "sum-of-two-numbers"
+    5.add 7
+  .equal-to 12 > @
+
+[] > two-strings
+  assert-that
+    "are two strings equals"
+    "text"
+  .equal-to "text" > @
+
+[] > two-floats-sum
+  assert-that
+    "sum of two floats"
+    4.1.add 3.9
+  .equal-to 8.0 > @
+
+[] > two-bools
+  assert-that
+    "two bools"
+    FALSE.not
+  .equal-to TRUE > @
+

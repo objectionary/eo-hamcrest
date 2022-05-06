@@ -42,19 +42,27 @@ public final class EOassert_thatEOequal_toTest {
 
     @Test
     public void isStringsEqualTo() {
-        final String actual = "hello";
-        final String expected = "hello";
-        MatcherAssert.assertThat(
-            new Dataized(
-                new EOassert_that$EOequal_to(
-                    new PhWith(
+        final String actual = "text";
+        final String expected = "text";
+
+        Phi assertThat = new PhWith(
+                new PhWith(
                         new EOassert_that(Phi.Φ),
-                        "actual",
-                        new Data.ToPhi(actual)
-                    )
-                )
-            ).take(Boolean.class),
-            Matchers.equalTo(expected)
+                        "reason",
+                        new Data.ToPhi("test reason")
+                ),
+                "actual",
+                new Data.ToPhi(actual)
         );
+
+        MatcherAssert.assertThat(
+                new Dataized(
+                        new PhWith(
+                                new EOassert_that$EOequal_to(assertThat),
+                                0,
+                                new Data.ToPhi(expected)
+                        )
+                ).take(Boolean.class),
+                Matchers.is(true));
     }
 }

@@ -23,14 +23,15 @@
 +package org.eolang.hamcrest
 +rt jvm org.eolang:eo-hamcrest:0.0.0
 +alias org.eolang.hamcrest.assert-result
++alias org.eolang.gray.cage
 
 [reason actual] > assert-that
-  assert-result reason actual result > @
+  assert-result reason actual results > @
 
-  memory > result
+  cage > results
 
-  [r] > set-result
-    ^.result.write r > @
+  [r] > set-results
+    ^.results.write r > @
 
   [x] > equal-to /assert-that
 

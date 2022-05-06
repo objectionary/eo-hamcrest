@@ -26,17 +26,20 @@ package EOorg.EOeolang.EOhamcrest;
 
 import org.eolang.*;
 
+import java.util.Arrays;
+
 /**
  * Assert-that.equal-to.
  *
- * @since 0.1
  * @checkstyle TypeNameCheck (100 lines)
+ * @since 0.1
  */
 @SuppressWarnings("PMD.AvoidDollarSigns")
 public class EOassert_that$EOequal_to extends PhDefault {
 
     /**
      * Ctor.
+     *
      * @param sigma The \sigma
      * @checkstyle BracketsStructureCheck (200 lines)
      */
@@ -45,10 +48,33 @@ public class EOassert_that$EOequal_to extends PhDefault {
         super(sigma);
         this.add("x", new AtFree());
         this.add("φ", new AtComposite(this, rho -> {
-            final Object expected = new Dataized(rho.attr("x").get()).take();
-            final Object actual = new Dataized(sigma.attr("actual").get()).take();
-            final String reason = new Dataized(sigma.attr("reason").get()).take(String.class);
-            boolean result = expected.equals(actual);
+            final Phi parent = rho.attr("σ").get();
+            final Phi actual = parent.attr("actual").get();
+            final String reason = new Param(parent, "reason").strong(String.class);
+            boolean result = Arrays.equals(
+                    new Dataized(
+                            new PhMethod(
+                                    rho.attr("x").get(),
+                                    "as-bytes"
+                            )
+                    ).take(byte[].class),
+                    new Dataized(
+                            new PhMethod(
+                                    actual,
+                                    "as-bytes"
+                            )
+                    ).take(byte[].class));
+
+            Phi[] results;
+            try {
+                results = new Dataized(parent.attr("results").get()).take(Phi[].class);
+                Phi[] dest = new Phi[results.length + 1];
+                System.arraycopy(results, 0, dest, 0, results.length);
+                dest[results.length] = new Data.ToPhi(result);
+                results = dest;
+            } catch (final ExAbstract ex) {
+                results = new Phi[]{new Data.ToPhi(result)};
+            }
 
             Phi assertThat = new PhWith(
                     new PhWith(
@@ -57,15 +83,15 @@ public class EOassert_that$EOequal_to extends PhDefault {
                             new Data.ToPhi(reason)
                     ),
                     "actual",
-                    new Data.ToPhi(actual)
+                    actual
             );
 
             new Dataized(new PhWith(
                     new PhMethod(
-                            assertThat, "set-result"
+                            assertThat, "set-results"
                     ),
                     0,
-                    new Data.ToPhi(result)
+                    new Data.ToPhi(results)
             )).take();
 
             return assertThat;

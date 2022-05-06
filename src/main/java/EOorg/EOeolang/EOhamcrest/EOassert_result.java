@@ -45,14 +45,22 @@ public class EOassert_result extends PhDefault {
         super(sigma);
         this.add("reason", new AtFree());
         this.add("actual", new AtFree());
-        this.add("result", new AtFree());
+        this.add("results", new AtFree());
         this.add("φ", new AtComposite(this, rho -> {
-            final boolean result = new Dataized(rho.attr("result").get()).take(Boolean.class);
-            if (result) {
-                return new Data.ToPhi(true);
-            } else {
-                return new Data.ToPhi(false);
+            final Phi[] results = new Param(rho, "results").strong(Phi[].class);
+            final String reason = new Param(rho, "reason").strong(String.class);
+
+            for (int idx = 0; idx < results.length; ++idx) {
+                Object arg = new Dataized(results[idx]).take();
+                if (arg instanceof Boolean) {
+                    Boolean b = (Boolean) arg;
+                    if (!b) {
+                        return new Data.ToPhi(false);
+                    }
+                }
             }
+
+            return new Data.ToPhi(true);
         }));
     }
 }

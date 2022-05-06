@@ -23,7 +23,7 @@
 +package org.eolang.hamcrest
 +rt jvm org.eolang:eo-hamcrest:0.0.0
 
-[reason actual result] > assert-result /?
+[reason actual results] > assert-result /?
 
 
 
