@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2022 Graur Andrew
+# Copyright (c) 2020-2022 Graur Andrew
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -21,26 +21,13 @@
 # SOFTWARE.
 
 +package org.eolang.hamcrest
-+rt jvm org.eolang:eo-hamcrest:0.0.0
-+alias org.eolang.hamcrest.assert-result
-+alias org.eolang.gray.cage
++alias org.eolang.hamcrest.assert-that
++junit
 
-[reason actual] > assert-that
-  assert-result reason actual results > @
-
-  cage > results
-
-  [r] > set-results
-    ^.results.write r > @
-
-  [x] > equal-to /assert-that
-
-  [] > and /assert-that
-
-  [] > or /assert-that
-
-  [x] > less-than /assert-that
-
-
-
-
+[] > equal-to-and-less-than
+  assert-that
+    "two numbers"
+    11
+  .equal-to 11
+  .and
+  .less-than 100 > @
