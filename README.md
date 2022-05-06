@@ -18,14 +18,14 @@ EO-Hamcrest is a framework for writing matcher objects, allowing you to declarat
 +junit
 
 [] > first-test
-  assert-that > @
+  assert-that
     "sum of two numbers"
     4.add 4
   .equal-to 8
   .or
   .less-than 50
   .and
-  .greater-than 6
+  .greater-than 6 > @
 ```
 
 The ```assert-that``` object is a stylized sentence for making a test assertion. 
@@ -45,12 +45,12 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 +junit
 
 [] > core-matchers-test
-  assert-that > @
+  assert-that
     "multiply of two numbers"
     5.mul 4
   .is
   .anything
-  .described-as "this message will never be seen"
+  .described-as "this message will never be seen" > @
 ```
 
 ```.anything``` - always matches, useful if you don’t care what the object under test is
@@ -69,15 +69,15 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
   assert-that
     "substract one number from another"
     50.sub 10 > assertion
-    .all-of > all-tests-must-be-true
-      assert-that > @
+    .all-of > all-tests-must-be-true > @
+      assert-that
         ^.assertion
-      .any-of
+      .any-of > @
         TRUE
         115.eq 4.add 1
-      assert-that > @
+      assert-that
         ^.assertion
-      .equal-to 40
+      .equal-to 40 > @
 ```
 
 ```.all-of``` - matches if all matchers match, short circuits (like Java &&)
@@ -105,9 +105,9 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
     array 1 5 8 12
   .has-item
     [i]
-      assert-that > @
+      assert-that
         i
-      .less-than 4
+      .less-than 4 > @
 ```
 ```array``` - test an array’s elements against an array of matchers
 
@@ -126,7 +126,7 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
     31.div 3
   .close-to 10
   .or
-  .less-than 20
+  .less-than 20 > @
   
 ```
 
@@ -147,7 +147,7 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
     "Hello World!"
   .equal-to-ignoring-case "hello world!"
   .or
-  .starts-with "Hello"
+  .starts-with "Hello" > @
 ```
 
 ```.equal-to-ignoring-case``` - test string equality ignoring case
