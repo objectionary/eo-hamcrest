@@ -17,21 +17,17 @@ EO-Hamcrest is a framework for writing matcher objects, allowing you to declarat
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-[] > first-test
-  assert-that > @
-    "sum of two numbers"
+test. > first-test
+  assert-that > a
     4.add 4
-    .equal-to 8
-    .or
-    .less-than 50
-    .and
-    .greater-than 6
+    "sum of two numbers"
+  a.all-of
+    a.equal-to 8
+    a.less-than 100
 ```
 
-The ```assert-that``` object is a stylized sentence for making a test assertion. 
-In this example, this object has two parameters: string description of the test case (```sum of two numbers```) and the subject of the assertion (```4.add 4```).
-Then you can see the chain of the nested objects, which are called matchers. So you can apply these matchers to the subject of the assertion, whenever you want, to make your test cases more readable.
-After running this test, if the assertion is true, it will return: ```TRUE```. Otherwise, you might get the console output with particular exception message.
+The ```assert-that``` object is a stylized sentence for making a test assertion.
+In this example, the subject of the assertion is the object ```4.add 4``` that is the first method parameter. The second method parameter is an optional string description of the test case (```sum of two numbers```). The third parameter is a matcher for the first parameter, here a matcher that checks one object is equal and less than to another objects. The test passes since all conditions are ```TRUE```.
 
 ### Matchers
 
@@ -44,13 +40,12 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-[] > core-matchers-test
-  assert-that > @
-    "multiply of two numbers"
+test. > core-matchers-test
+  assert-that > a
     5.mul 4
-    .is
-    .anything
-    .described-as "this message will never be seen"
+    "multiply of two numbers"
+  a.is
+    a.anything
 ```
 
 ```.anything``` - always matches, useful if you don’t care what the object under test is
@@ -65,19 +60,16 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-[] > logical-matchers-test
-  assert-that
+test. > logical-matchers-test
+  assert-that > a
+    50.sub 10
     "substract one number from another"
-    50.sub 10 > assertion
-    .all-of > all-tests-must-be-true
-      assert-that > @
-        ^.assertion
-        .not 5
-      assert-that > @
-        ^.assertion
-        .equal-to 40
-        .or
-        .not 10 
+  a.all-of
+    a.not 
+      a.equal-to 5
+    a.any-of
+      a.less-than 100
+      a.greater-than 1
 ```
 
 ```.all-of``` - matches if all matchers match, short circuits (like Java &&)
@@ -85,10 +77,6 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 ```.any-of``` - matches if any matchers match, short circuits (like Java ||)
 
 ```.not``` - matches if the wrapped matcher doesn’t match and vice versa
-
-```.or``` - matches if either the wrapped matcher or next matcher are TRUE (like Java ||) 
-
-```.and``` - matches if the wrapped matcher and next matcher are both TRUE (like Java &&)
 
 ###### Object
 ```.equal-to``` - the subject of the assertion is equal to some object
@@ -99,16 +87,31 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-[] > collections-test
-  assert-that
-    array 1 5 8 12
-    .has-item
-      [i]
-        assert-that > @
-          i
-          .less 4
+test. > collections-test
+  assert-that > a
+    * 50 't' "smth"
+  a.array
+    a.equal-to 50
+    a.equal-to 't'
+    a.equal-to "smth"
 ```
 ```array``` - test an array’s elements against an array of matchers
+
+```
++package org.eolang
++alias org.eolang.hamcrest.assert-that
++junit
+
+test. > collections-test
+  assert-that > a
+    * 1 5 'f' 12
+  a.has-item
+    [i]
+      test.
+        assert-that > a
+          i
+        a.less-than 4
+```
 
 ```.has-item```, ```.has-items``` - test a collection contains elements
 
@@ -119,14 +122,14 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-[] > numbers-matchers-test
-  assert-that
-    "floating point number closed to 10"
+test. > numbers-matchers-test
+  assert-that > a
     31.div 3
-    .close-to 10
-    .or
-    .less-than 20
-  
+    "floating point number closed to 10"
+  a.any-of
+    a.close-to 10
+    a.less-than 20
+    a.greater-than 355
 ```
 
 ```.close-to``` - test floating point values are close to a given value
@@ -140,13 +143,15 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-[] > text-matchers-test
-  assert-that
+test. > text-matchers-test
+  assert-that > a
+    "Vice versa!"
     "text matchers test"
-    "Hello World!"
-    .equal-to-ignoring-case "hello world!"
-    .or
-    .starts-with "Hello"
+  a.all-of
+    a.equal-to-ignoring-case "vice versa!"
+    a.starts-with "Vice"
+    a.ends-with "versa!"
+    a.contains-string "ver"
 ```
 
 ```.equal-to-ignoring-case``` - test string equality ignoring case
@@ -157,6 +162,27 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 
 
 More examples are [here](https://github.com/Graur/eo-hamcrest/examples)
+
+## Custom matchers
+
+You can also implement your own matcher by passing parameter to the ```assert-that.test``` object:
+
+```
++package org.eolang
++alias org.eolang.hamcrest.assert-that
++junit
+
+test. > my-custom-matcher-test
+  assert-that > a
+    my-object
+  my-custom-matcher obj
+
+[obj] > my-custom-matcher
+  [] > match
+    eq. > @
+      &.actual
+      obj    
+```
 
 ## How to Contribute
 
