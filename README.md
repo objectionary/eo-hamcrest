@@ -178,9 +178,9 @@ test. > my-custom-matcher-test
   my-custom-matcher obj
 
 [obj] > my-custom-matcher
-  [] > match
+  [x] > match
     eq. > @
-      &.actual
+      x
       obj    
 ```
 
