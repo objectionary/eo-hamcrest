@@ -161,7 +161,7 @@ test. > text-matchers-test
 ```.contains-string,``` ```.ends-with```, ```.starts-with``` - test string matching
 
 
-More examples are [here](https://github.com/Graur/eo-hamcrest/examples)
+More examples are [here](https://github.com/Graur/eo-hamcrest/tree/main/examples)
 
 ## Custom matchers
 
