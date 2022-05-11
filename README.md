@@ -18,13 +18,12 @@ EO-Hamcrest is a framework for writing matcher objects, allowing you to declarat
 +junit
 
 [] > first-test
-  test. > @
-    assert-that > a
-      4.add 4
-      "sum of two numbers"
-    a.all-of
-      a.equal-to 8
-      a.less-than 100
+  assert-that > @
+    4.add 4
+    $.all-of
+      $.equal-to 8
+      $.less-than 100
+    "sum of two numbers"
 ```
 
 The ```assert-that``` object is a stylized sentence for making a test assertion.
@@ -42,12 +41,11 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 +junit
 
 [] > core-matchers-test
-  test. > @
-    assert-that > a
-      5.mul 4
-      "multiply of two numbers"
-    a.is
-      a.anything
+  assert-that > @
+    5.mul 4
+    $.is
+      $.anything
+    "multiply of two numbers"
 ```
 
 ```.anything``` - always matches, useful if you don’t care what the object under test is
@@ -63,16 +61,15 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 +junit
 
 [] > logical-matchers-test
-  test. > @
-    assert-that > a
-      50.sub 10
-      "substract one number from another"
-    a.all-of
-      a.not 
-        a.equal-to 5
-      a.any-of
-        a.less-than 100
-        a.greater-than 1
+  assert-that > @
+    50.sub 10
+    $.all-of
+      $.not 
+        $.equal-to 5
+      $.any-of
+        $.less-than 100
+        $.greater-than 1
+    "substract one number from another"
 ```
 
 ```.all-of``` - matches if all matchers match, short circuits (like Java &&)
@@ -91,13 +88,12 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 +junit
 
 [] > collections-test
-  test. > @
-    assert-that > a
-      * 50 't' "smth"
-    a.array
-      a.equal-to 50
-      a.equal-to 't'
-      a.equal-to "smth"
+  assert-that > @
+    * 50 't' "smth"
+    $.array
+      $.equal-to 50
+      $.equal-to 't'
+      $.equal-to "smth"
 ```
 ```array``` - test an array’s elements against an array of matchers
 
@@ -107,15 +103,13 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 +junit
 
 [] > collections-test
-  test. > @
-    assert-that > a
-      * 1 5 'f' 12
-    a.has-item
+  assert-that > @
+    * 1 5 'f' 12
+    $.has-item
       [i]
-        test.
-          assert-that > a
-            i
-          a.less-than 4
+        assert-that > @
+          i
+          $.less-than 4
 ```
 
 ```.has-item```, ```.has-items``` - test a collection contains elements
@@ -128,14 +122,13 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 +junit
 
 [] > numbers-matchers-test
-  test. > @
-    assert-that > a
-      31.div 3
-      "floating point number closed to 10"
-    a.any-of
-      a.close-to 10
-      a.less-than 20
-      a.greater-than 355
+  assert-that > @
+    31.div 3
+    $.any-of
+      $.close-to 10
+      $.less-than 20
+      $.greater-than 355
+    "floating point number closed to 10"
 ```
 
 ```.close-to``` - test floating point values are close to a given value
@@ -150,15 +143,14 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 +junit
 
 [] > text-matchers-test
-  test. > @
-    assert-that > a
-      "Vice versa!"
-      "text matchers test"
-    a.all-of
-      a.equal-to-ignoring-case "vice versa!"
-      a.starts-with "Vice"
-      a.ends-with "versa!"
-      a.contains-string "ver"
+  assert-that > @
+    "Vice versa!"
+    $.all-of
+      $.equal-to-ignoring-case "vice versa!"
+      $.starts-with "Vice"
+      $.ends-with "versa!"
+      $.contains-string "ver"
+    "text matchers test"
 ```
 
 ```.equal-to-ignoring-case``` - test string equality ignoring case
@@ -180,9 +172,8 @@ You can also implement your own matcher by passing parameter to the ```assert-th
 +junit
 
 [] > my-custom-matcher-test
-  test. > @
-    assert-that > a
-      my-object
+  assert-that > @
+    my-object
     my-custom-matcher obj
 
 [obj] > my-custom-matcher
