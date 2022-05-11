@@ -21,19 +21,16 @@
 # SOFTWARE.
 
 +package org.eolang.hamcrest
-+rt jvm org.eolang:eo-hamcrest:0.0.0
-+alias org.eolang.hamcrest.assert-result
-+alias org.eolang.gray.cage
 
-[reason actual] > assert-that
-  assert-result reason actual results > @
+[actual matcher descriptions...] > assert-that
 
-  cage > results
+  matcher.match actual > @
 
-  [r] > set-results
-    ^.results.write r > @
-
-  [x] > equal-to /assert-that
+  [x] > equal-to
+    [a] > match
+      eq. > @
+        x
+        a
 
 
 
