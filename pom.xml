@@ -38,10 +38,10 @@ SOFTWARE.
   </description>
   <url>https://github.com/Graur/eo-hamcrest</url>
   <inceptionYear>2022</inceptionYear>
-<!--  <organization>-->
-<!--    <name>EO</name>-->
-<!--    <url>https://github.com/yegor256/eo-files</url>-->
-<!--  </organization>-->
+  <organization>
+    <name>EO</name>
+    <url>https://github.com/Graur/eo-hamcrest</url>
+  </organization>
   <licenses>
     <license>
       <name>MIT</name>
@@ -175,21 +175,21 @@ SOFTWARE.
 <!--        </plugins>-->
 <!--      </build>-->
 <!--    </profile>-->
-<!--    <profile>-->
-<!--      <id>qulice</id>-->
-<!--      <build>-->
-<!--        <plugins>-->
-<!--          <plugin>-->
-<!--            <groupId>com.qulice</groupId>-->
-<!--            <artifactId>qulice-maven-plugin</artifactId>-->
-<!--            <configuration>-->
-<!--              <excludes combine.children="append">-->
-<!--                <exclude>pmd:.*</exclude>-->
-<!--              </excludes>-->
-<!--            </configuration>-->
-<!--          </plugin>-->
-<!--        </plugins>-->
-<!--      </build>-->
-<!--    </profile>-->
+    <profile>
+      <id>qulice</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>com.qulice</groupId>
+            <artifactId>qulice-maven-plugin</artifactId>
+            <configuration>
+              <excludes combine.children="append">
+                <exclude>pmd:.*</exclude>
+              </excludes>
+            </configuration>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
   </profiles>
 </project>
