@@ -76,6 +76,7 @@ public final class EOassert_thatEOequal_toEOmatchTest {
     }
 
     private static Stream<Arguments> provideArgumentsForTests() {
+        // @checkstyle MagicNumber (9 line)
         return Stream.of(
             Arguments.of("text", "text"),
             Arguments.of(150L, 150L),
