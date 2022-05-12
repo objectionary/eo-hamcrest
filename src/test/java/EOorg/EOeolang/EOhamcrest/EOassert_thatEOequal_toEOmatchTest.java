@@ -10,8 +10,8 @@
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
  *
- * The above copyright notice and this permission notice shall be included
- * in all copies or substantial portions of the Software.
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
  * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
@@ -24,6 +24,7 @@
 // @checkstyle PackageNameCheck (1 line)
 package EOorg.EOeolang.EOhamcrest;
 
+import java.util.stream.Stream;
 import org.eolang.Data;
 import org.eolang.Dataized;
 import org.eolang.PhMethod;
@@ -34,13 +35,12 @@ import org.hamcrest.Matchers;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
-import java.util.stream.Stream;
 
 /**
- * Test.
+ * Assert-that.equal-to.match.Test.
  *
- * @checkstyle TypeNameCheck (100 lines)
  * @since 0.1
+ * @checkstyle TypeNameCheck (100 lines)
  */
 public final class EOassert_thatEOequal_toEOmatchTest {
 
@@ -77,15 +77,15 @@ public final class EOassert_thatEOequal_toEOmatchTest {
 
     private static Stream<Arguments> provideArgumentsForTests() {
         return Stream.of(
-                Arguments.of("text", "text"),
-                Arguments.of(150L, 150L),
-                Arguments.of(true, true),
-                Arguments.of('c', 'c'),
-                Arguments.of(2.18d, 2.18d),
-                Arguments.of(
-                    new byte[] {(byte) 0x00, (byte) 0x1f},
-                    new byte[] {(byte) 0x00, (byte) 0x1f}
-                )
+            Arguments.of("text", "text"),
+            Arguments.of(150L, 150L),
+            Arguments.of(true, true),
+            Arguments.of('c', 'c'),
+            Arguments.of(2.18d, 2.18d),
+            Arguments.of(
+                new byte[] {(byte) 0x00, (byte) 0x1f},
+                new byte[] {(byte) 0x00, (byte) 0x1f}
+            )
         );
     }
 }
