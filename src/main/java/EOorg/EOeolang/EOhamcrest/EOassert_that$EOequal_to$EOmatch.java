@@ -24,43 +24,47 @@
 // @checkstyle PackageNameCheck (1 line)
 package EOorg.EOeolang.EOhamcrest;
 
-import org.eolang.*;
+import java.util.Arrays;
+import org.eolang.AtComposite;
+import org.eolang.AtFree;
+import org.eolang.Data;
+import org.eolang.Dataized;
+import org.eolang.PhDefault;
+import org.eolang.PhMethod;
+import org.eolang.Phi;
 
 /**
- * Assert-result.
+ * Assert-that.equal-to.match.
  *
- * @since 0.1
  * @checkstyle TypeNameCheck (100 lines)
+ * @since 0.1
  */
 @SuppressWarnings("PMD.AvoidDollarSigns")
-public class EOassert_result extends PhDefault {
+public class EOassert_that$EOequal_to$EOmatch extends PhDefault {
 
     /**
      * Ctor.
+     *
      * @param sigma The \sigma
      * @checkstyle BracketsStructureCheck (200 lines)
      */
     @SuppressWarnings("PMD.ConstructorOnlyInitializesOrCallOtherConstructors")
-    public EOassert_result(final Phi sigma) {
+    public EOassert_that$EOequal_to$EOmatch(final Phi sigma) {
         super(sigma);
-        this.add("reason", new AtFree());
-        this.add("actual", new AtFree());
-        this.add("results", new AtFree());
+        this.add("a", new AtFree());
         this.add("φ", new AtComposite(this, rho -> {
-            final Phi[] results = new Param(rho, "results").strong(Phi[].class);
-            final String reason = new Param(rho, "reason").strong(String.class);
-
-            for (int idx = 0; idx < results.length; ++idx) {
-                Object arg = new Dataized(results[idx]).take();
-                if (arg instanceof Boolean) {
-                    Boolean b = (Boolean) arg;
-                    if (!b) {
-                        return new Data.ToPhi(false);
-                    }
-                }
-            }
-
-            return new Data.ToPhi(true);
+            final Phi eqt = rho.attr("σ").get();
+            final Phi actual = rho.attr("a").get();
+            final Phi expected = eqt.attr("x").get();
+            return new Data.ToPhi(
+                Arrays.equals(
+                    new Dataized(
+                        new PhMethod(expected, "as-bytes")
+                    ).take(byte[].class),
+                    new Dataized(
+                        new PhMethod(actual, "as-bytes")
+                    ).take(byte[].class)
+                ));
         }));
     }
 }
