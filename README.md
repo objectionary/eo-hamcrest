@@ -17,13 +17,13 @@ EO-Hamcrest is a framework for writing matcher objects, allowing you to declarat
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-test. > first-test
-  assert-that > a
+[] > first-test
+  assert-that > @
     4.add 4
+    $.all-of
+      $.equal-to 8
+      $.less-than 100
     "sum of two numbers"
-  a.all-of
-    a.equal-to 8
-    a.less-than 100
 ```
 
 The ```assert-that``` object is a stylized sentence for making a test assertion.
@@ -40,12 +40,12 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-test. > core-matchers-test
-  assert-that > a
+[] > core-matchers-test
+  assert-that > @
     5.mul 4
+    $.is
+      $.anything
     "multiply of two numbers"
-  a.is
-    a.anything
 ```
 
 ```.anything``` - always matches, useful if you don’t care what the object under test is
@@ -60,16 +60,16 @@ test. > core-matchers-test
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-test. > logical-matchers-test
-  assert-that > a
+[] > logical-matchers-test
+  assert-that > @
     50.sub 10
+    $.all-of
+      $.not 
+        $.equal-to 5
+      $.any-of
+        $.less-than 100
+        $.greater-than 1
     "substract one number from another"
-  a.all-of
-    a.not 
-      a.equal-to 5
-    a.any-of
-      a.less-than 100
-      a.greater-than 1
 ```
 
 ```.all-of``` - matches if all matchers match, short circuits (like Java &&)
@@ -87,13 +87,13 @@ test. > logical-matchers-test
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-test. > collections-test
-  assert-that > a
+[] > collections-test
+  assert-that > @
     * 50 't' "smth"
-  a.array
-    a.equal-to 50
-    a.equal-to 't'
-    a.equal-to "smth"
+    $.array
+      $.equal-to 50
+      $.equal-to 't'
+      $.equal-to "smth"
 ```
 ```array``` - test an array’s elements against an array of matchers
 
@@ -102,15 +102,14 @@ test. > collections-test
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-test. > collections-test
-  assert-that > a
+[] > collections-test
+  assert-that > @
     * 1 5 'f' 12
-  a.has-item
-    [i]
-      test.
-        assert-that > a
+    $.has-item
+      [i]
+        assert-that > @
           i
-        a.less-than 4
+          $.less-than 4
 ```
 
 ```.has-item```, ```.has-items``` - test a collection contains elements
@@ -122,14 +121,14 @@ test. > collections-test
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-test. > numbers-matchers-test
-  assert-that > a
+[] > numbers-matchers-test
+  assert-that > @
     31.div 3
+    $.any-of
+      $.close-to 10
+      $.less-than 20
+      $.greater-than 355
     "floating point number closed to 10"
-  a.any-of
-    a.close-to 10
-    a.less-than 20
-    a.greater-than 355
 ```
 
 ```.close-to``` - test floating point values are close to a given value
@@ -143,15 +142,15 @@ test. > numbers-matchers-test
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-test. > text-matchers-test
-  assert-that > a
+[] > text-matchers-test
+  assert-that > @
     "Vice versa!"
+    $.all-of
+      $.equal-to-ignoring-case "vice versa!"
+      $.starts-with "Vice"
+      $.ends-with "versa!"
+      $.contains-string "ver"
     "text matchers test"
-  a.all-of
-    a.equal-to-ignoring-case "vice versa!"
-    a.starts-with "Vice"
-    a.ends-with "versa!"
-    a.contains-string "ver"
 ```
 
 ```.equal-to-ignoring-case``` - test string equality ignoring case
@@ -172,15 +171,15 @@ You can also implement your own matcher by passing parameter to the ```assert-th
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-test. > my-custom-matcher-test
-  assert-that > a
+[] > my-custom-matcher-test
+  assert-that > @
     my-object
-  my-custom-matcher obj
+    my-custom-matcher obj
 
 [obj] > my-custom-matcher
-  [] > match
+  [x] > match
     eq. > @
-      &.actual
+      x
       obj    
 ```
 
