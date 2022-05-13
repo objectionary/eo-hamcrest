@@ -51,7 +51,3 @@
       sprintf > @
         "was <%s>"
         x
-
-
-
-
