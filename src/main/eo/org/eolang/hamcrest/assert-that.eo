@@ -63,7 +63,27 @@
     [] > describe
       sprintf > @
         "not <%s>"
-        ^.matcher.decribe
+        ^.matcher.describe
+
+  # Calculates the logical conjunction of multiple matchers.
+  # Evaluation is shortcut, so subsequent matchers are not called
+  # if an earlier matcher returns false.
+  [matchers...] > all-of
+
+    [a] > match
+      memory > i
+      seq > @
+        i.write 0
+        while.
+          i.less ((matchers.length).div 1)
+          if.
+            mi.match ^.^.a
+            i.write (i.add 1)
+            seq
+              i.write (m.length.add 1)
+
+    [] > describe
+      "a lot of matchers" > @
 
 
 
