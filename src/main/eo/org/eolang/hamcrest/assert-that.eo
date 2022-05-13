@@ -24,6 +24,7 @@
 +alias sprintf org.eolang.txt.sprintf
 +rt jvm org.eolang:eo-hamcrest:0.0.0
 
+# Main object for assertions
 [actual matcher reasons...] > assert-that
 
   if. > @
@@ -39,9 +40,13 @@
         &.actual
         &.matcher.describe
 
+  # Is the value equal to another value
   [x] > equal-to
 
-    [a] > match /bool
+    [a] > match
+      eq. > @
+        x
+        a
 
     [] > describe
       sprintf > @
