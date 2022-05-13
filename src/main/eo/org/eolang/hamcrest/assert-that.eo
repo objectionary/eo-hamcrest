@@ -24,29 +24,33 @@
 +alias sprintf org.eolang.txt.sprintf
 +rt jvm org.eolang:eo-hamcrest:0.0.0
 
+# Main object for assertions
 [actual matcher reasons...] > assert-that
 
   if. > @
     matcher.match actual
     TRUE
-    []
-      sprintf > @
-        "%s Expected: <%s> but %s"
-        if.
-          &.reasons.is-empty
-          ""
-          &.reasons.get 0
-        &.actual
-        &.matcher.describe
+    sprintf
+      "%s Expected: <%s> but %s"
+      if.
+        reasons.is-empty
+        ""
+        reasons.get 0
+      actual
+      matcher.describe
 
+  # Is the value equal to another value
   [x] > equal-to
 
-    [a] > match /bool
+    [a] > match
+      eq. > @
+        x
+        a
 
     [] > describe
       sprintf > @
         "was <%s>"
-        ^.x
+        x
 
 
 
