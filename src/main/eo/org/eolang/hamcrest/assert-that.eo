@@ -30,15 +30,14 @@
   if. > @
     matcher.match actual
     TRUE
-    []
-      sprintf > @
-        "%s Expected: <%s> but %s"
-        if.
-          &.reasons.is-empty
-          ""
-          &.reasons.get 0
-        &.actual
-        &.matcher.describe
+    sprintf
+      "%s Expected: <%s> but %s"
+      if.
+        reasons.is-empty
+        ""
+        reasons.get 0
+      actual
+      matcher.describe
 
   # Is the value equal to another value
   [x] > equal-to
@@ -51,7 +50,7 @@
     [] > describe
       sprintf > @
         "was <%s>"
-        ^.x
+        x
 
   # Calculates the logical negation of a matcher
   [matcher] > not
