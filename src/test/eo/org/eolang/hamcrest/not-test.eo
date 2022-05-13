@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2022 Graur Andrew
+# Copyright (c) 2020-2022 Graur Andrew
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -21,51 +21,31 @@
 # SOFTWARE.
 
 +package org.eolang.hamcrest
-+alias sprintf org.eolang.txt.sprintf
-+rt jvm org.eolang:eo-hamcrest:0.0.0
++alias org.eolang.hamcrest.assert-that
++junit
 
-# Main object for assertions
-[actual matcher reasons...] > assert-that
+[] > not-equal-two-sum-test
+  assert-that > @
+    5.add 10
+    $.not
+      $.equal-to 55
+    "sum of two numbers"
 
-  if. > @
-    matcher.match actual
-    TRUE
-    []
-      sprintf > @
-        "%s Expected: <%s> but %s"
-        if.
-          &.reasons.is-empty
-          ""
-          &.reasons.get 0
-        &.actual
-        &.matcher.describe
+[] > not-equal-two-strings-test
+  assert-that > @
+    "i am true"
+    $.not
+      $.equal-to "i am false"
 
-  # Is the value equal to another value
-  [x] > equal-to
+[] > not-equal-two-floats-sum-test
+  assert-that > @
+    10.55.div 4.7
+    $.not
+      $.equal-to 18.35
 
-    [a] > match
-      eq. > @
-        x
-        a
-
-    [] > describe
-      sprintf > @
-        "was <%s>"
-        ^.x
-
-  # Calculates the logical negation of a matcher
-  [matcher] > not
-
-    [a] > match
-      not. > @
-        ^.matcher.match a
-
-    [] > describe
-      sprintf > @
-        "not <%s>"
-        ^.matcher.decribe
-
-
-
-
-
+[] > not-equal-two-bools-test
+  assert-that > @
+    FALSE
+    $.not
+      $.equal-to TRUE
+    "two bools"

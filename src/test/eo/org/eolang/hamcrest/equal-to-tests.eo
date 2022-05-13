@@ -24,25 +24,25 @@
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-[] > two-sum
+[] > two-sum-test
   assert-that > @
     4.add 4
     $.equal-to 8
     "sum of two numbers"
 
-[] > two-strings
+[] > two-strings-test
   assert-that > @
     "vice"
     $.equal-to "vice"
     "two strings"
 
-[] > two-floats-sum
+[] > two-floats-sum-test
   assert-that > @
     4.1.add 3.9
     $.equal-to 8.0
     "sum of two floats"
 
-[] > two-bools
+[] > two-bools-test
   assert-that > @
     FALSE.not
     $.equal-to TRUE
