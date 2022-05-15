@@ -24,9 +24,10 @@
 +alias org.eolang.hamcrest.assert-that
 +junit
 
+# todo Add more tests after fixing issue #13
 [] > all-of-numbers-test
   assert-that > @
-    100.div 50
+    150.sub 50
     $.all-of
-      $.equal-to 150
+      $.equal-to 100
     "all of numbers conditions"
