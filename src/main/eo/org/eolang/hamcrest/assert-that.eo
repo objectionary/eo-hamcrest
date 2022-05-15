@@ -52,12 +52,12 @@
     [] > describe-mismatch
       sprintf > @
         "was <%s>"
-        x
+        actual
 
     [] > description-of
       sprintf > @
         "<%s> equal to value"
-        actual
+        x
 
   # Calculates the logical negation of a matcher
   [matcher] > not
@@ -109,6 +109,38 @@
 
     [] > description-of
       " and ".joined > @
+        map.
+          matchers
+          [i]
+            i.description-of > @
+
+  # Calculates the logical disjunction of multiple matchers.
+  # Evaluation is shortcut, so subsequent matchers are not called
+  # if an earlier matcher returns true.
+  [matchers...] > any-of
+
+    [a] > match
+      memory > count
+      seq > @
+        count.write 0
+        while.
+          and.
+            count.less (matchers.length)
+            count.geq 0
+          [i]
+            if. > @
+              (matchers.get i).match a
+              count.write -1
+              count.write (i.add 1)
+        count.less 0
+
+    [] > describe-mismatch
+      sprintf > @
+        "a value was <%s>"
+        actual
+
+    [] > description-of
+      " or ".joined > @
         map.
           matchers
           [i]
