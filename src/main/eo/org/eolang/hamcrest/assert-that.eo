@@ -64,17 +64,18 @@
 
     [a] > match
       not. > @
-        ^.matcher.match a
+        matcher.match a
 
     [] > describe-mismatch
       sprintf > @
         "%s"
-        ^.matcher.describe-mismatch
+        matcher.describe-mismatch
 
     [] > description-of
       sprintf > @
         "not %s"
-        ^.matcher.description-of
+        description-of.
+          matcher
 
   # Calculates the logical conjunction of multiple matchers.
   # Evaluation is shortcut, so subsequent matchers are not called
