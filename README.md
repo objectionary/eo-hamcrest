@@ -125,10 +125,10 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
   assert-that > @
     31.div 3
     $.any-of
-      $.close-to 10
+      $.close-to 10.0 0.1
       $.less-than 20
       $.greater-than 355
-    "floating point number closed to 10"
+    "number of floating point number matchers"
 ```
 
 ```.close-to``` - test floating point values are close to a given value
@@ -181,6 +181,12 @@ You can also implement your own matcher by passing parameter to the ```assert-th
     eq. > @
       x
       obj    
+      
+  [] > describe-mismatch
+    "mismatch description message" > @
+
+  [] > description-of
+    "expected value description" > @
 ```
 
 ## How to Contribute
