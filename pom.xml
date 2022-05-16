@@ -49,39 +49,23 @@ SOFTWARE.
       <distribution>site</distribution>
     </license>
   </licenses>
-<!--  <developers>-->
-<!--    <developer>-->
-<!--      <id>1</id>-->
-<!--      <name>Yegor Bugayenko</name>-->
-<!--      <email>yegor256@gmail.com</email>-->
-<!--      <organization>yegor256.com</organization>-->
-<!--      <organizationUrl>https://www.yegor256.com</organizationUrl>-->
-<!--      <roles>-->
-<!--        <role>Architect</role>-->
-<!--        <role>Developer</role>-->
-<!--      </roles>-->
-<!--      <timezone>-7</timezone>-->
-<!--    </developer>-->
-<!--  </developers>-->
-<!--  <issueManagement>-->
-<!--    <system>GitHub</system>-->
-<!--    <url>https://github.com/yegor256/eo-files/issues</url>-->
-<!--  </issueManagement>-->
-<!--  <scm>-->
-<!--    <connection>scm:git:git@github.com:yegor256/eo-files.git</connection>-->
-<!--    <developerConnection>scm:git:git@github.com:yegor256/eo-files.git</developerConnection>-->
-<!--    <url>https://github.com/yegor256/eo-files</url>-->
-<!--  </scm>-->
-<!--  <ciManagement>-->
-<!--    <system>rultor</system>-->
-<!--    <url>https://www.rultor.com/s/eo-files</url>-->
-<!--  </ciManagement>-->
-<!--  <distributionManagement>-->
-<!--    <site>-->
-<!--      <id>github-pages</id>-->
-<!--      <url>https://github.com/yegor256/eo-files</url>-->
-<!--    </site>-->
-<!--  </distributionManagement>-->
+  <developers>
+    <developer>
+      <id>1</id>
+      <name>Andrew Graur</name>
+      <email>graur.andrew@gmail.com</email>
+      <organization>yegor256.com</organization>
+      <organizationUrl>https://www.yegor256.com</organizationUrl>
+      <roles>
+        <role>Developer</role>
+      </roles>
+      <timezone>-7</timezone>
+    </developer>
+  </developers>
+  <issueManagement>
+    <system>GitHub</system>
+    <url>https://github.com/Graur/eo-hamcrest/issues</url>
+  </issueManagement>
   <dependencies>
     <dependency>
       <groupId>org.eolang</groupId>
@@ -91,7 +75,7 @@ SOFTWARE.
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-params</artifactId>
-      <version>5.6.2</version>
+      <version>5.8.2</version>
       <scope>test</scope>
     </dependency>
   </dependencies>

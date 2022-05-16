@@ -31,13 +31,15 @@
     matcher.match actual
     TRUE
     sprintf
-      "%s Expected: <%s> but %s"
+      "%s: Expected: %s but: %s"
       if.
         reasons.is-empty
         ""
         reasons.get 0
-      actual
-      matcher.describe
+      description-of.
+        matcher
+      describe-mismatch.
+        matcher
 
   # Is the value equal to another value
   [x] > equal-to
@@ -47,7 +49,100 @@
         x
         a
 
-    [] > describe
+    [] > describe-mismatch
       sprintf > @
         "was <%s>"
+        actual
+
+    [] > description-of
+      sprintf > @
+        "<%s> equal to value"
         x
+
+  # Calculates the logical negation of a matcher
+  [matcher] > not
+
+    [a] > match
+      not. > @
+        matcher.match a
+
+    [] > describe-mismatch
+      sprintf > @
+        "%s"
+        matcher.describe-mismatch
+
+    [] > description-of
+      sprintf > @
+        "not %s"
+        description-of.
+          matcher
+
+  # Calculates the logical conjunction of multiple matchers.
+  # Evaluation is shortcut, so subsequent matchers are not called
+  # if an earlier matcher returns false.
+  [matchers...] > all-of
+
+    memory > mismatch
+
+    [a] > match
+      memory > count
+      seq > @
+        count.write 0
+        while.
+          and.
+            count.less (matchers.length)
+            count.geq 0
+          [i]
+            if. > @
+              (matchers.get i).match a
+              count.write (i.add 1)
+              seq
+                mismatch.write
+                  describe-mismatch.
+                    matchers.get i
+                count.write -1
+        count.greater 0
+
+    [] > describe-mismatch
+      sprintf > @
+        "a value %s"
+        mismatch
+
+    [] > description-of
+      " and ".joined > @
+        map.
+          matchers
+          [i]
+            i.description-of > @
+
+  # Calculates the logical disjunction of multiple matchers.
+  # Evaluation is shortcut, so subsequent matchers are not called
+  # if an earlier matcher returns true.
+  [matchers...] > any-of
+
+    [a] > match
+      memory > count
+      seq > @
+        count.write 0
+        while.
+          and.
+            count.less (matchers.length)
+            count.geq 0
+          [i]
+            if. > @
+              (matchers.get i).match a
+              count.write -1
+              count.write (i.add 1)
+        count.less 0
+
+    [] > describe-mismatch
+      sprintf > @
+        "a value was <%s>"
+        actual
+
+    [] > description-of
+      " or ".joined > @
+        map.
+          matchers
+          [i]
+            i.description-of > @
