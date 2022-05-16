@@ -163,5 +163,24 @@
 
     [] > description-of
       sprintf > @
+        "<%s> less than value"
+        x
+
+  # Compare object that matches when the examined object
+  # is less than the specified value
+  [x] > less-than
+
+    [a] > match
+      less. > @
+        a
+        x
+
+    [] > describe-mismatch
+      sprintf > @
+        "was <%s>"
+        actual
+
+    [] > description-of
+      sprintf > @
         "<%s> greater than value"
         x
