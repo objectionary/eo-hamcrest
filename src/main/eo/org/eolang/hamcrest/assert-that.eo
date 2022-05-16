@@ -31,7 +31,7 @@
     matcher.match actual
     TRUE
     sprintf
-      "%s: Expected: %s but: %s"
+      "%s\nExpected: %s but: %s"
       if.
         reasons.is-empty
         ""
@@ -242,3 +242,23 @@
 
     [] > description-of
       "anything" > @
+
+  # Wraps an existing matcher, overriding its description with that specified.
+  # All other functions are delegated to the decorated matcher,
+  # including its mismatch description.
+  [matcher format args...] > described-as
+
+    [a] > match
+      matcher.match a > @
+
+    [] > describe-mismatch
+      describe-mismatch. > @
+        matcher
+
+    [] > description-of
+      sprintf > @
+        format
+        # @todo #17:30 Here we got an object printed
+        # instead of data. The .map [i] i.as-string didn't work.
+        # We need to convert varargs to data[] somehow.
+        args
