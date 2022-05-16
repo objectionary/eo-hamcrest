@@ -24,41 +24,22 @@
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-[] > not-equal-two-sum-test
+[] > float-is-close-to-float-with-delta-test
   assert-that > @
-    5.add 10
-    $.not
-      $.equal-to 55
-    "sum of two numbers"
+    3.0
+    $.close-to 2.9 0.4
 
-[] > not-greater-than-two-sum-test
+[] > zero-is-close-to-float-with-delta-test
   assert-that > @
-    111.add 89
-    $.not
-      $.greater-than 201
-    "is 111.add 89 greater than 201"
+    0.0
+    $.close-to 0.0 1.2
 
-[] > not-equal-two-strings-test
+[] > neg-zero-is-close-to-float-with-delta-test
   assert-that > @
-    "i am true"
-    $.not
-      $.equal-to "i am false"
+    -0.0
+    $.close-to 0.0 1.2
 
-[] > not-equal-two-floats-div-test
+[] > neg-float-is-close-to-neg-float-with-delta-test
   assert-that > @
-    10.55.div 4.7
-    $.not
-      $.equal-to 18.35
-
-[] > not-greater-than-floats-mul-test
-  assert-that > @
-    101.35.mul 2.2
-    $.not
-      $.greater-than 250.31
-
-[] > not-equal-two-bools-test
-  assert-that > @
-    FALSE
-    $.not
-      $.equal-to TRUE
-    "two bools"
+    -123456789.123456
+    $.close-to -123456789.0 0.2
