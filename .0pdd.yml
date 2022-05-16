@@ -1,9 +1,9 @@
-#errors:
-#  - yegor256@gmail.com
-# alerts:
-#   github:
-#     - yegor256
+errors:
+  - graur.andrew@gmail.com
+ alerts:
+   github:
+     - Graur
 
-#tags:
-#  - pdd
-#  - bug
+tags:
+  - pdd
+  - bug
