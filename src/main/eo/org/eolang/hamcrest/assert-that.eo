@@ -213,3 +213,19 @@
         "a numeric value within <%s> of <%s>"
         operand
         err
+  # Decorates another Matcher, retaining the behaviour
+  # but allowing tests to be slightly more expressive.
+  [matcher] > is
+
+    [a] > match
+      matcher.match a > @
+
+    [] > describe-mismatch
+      describe-mismatch. > @
+        matcher
+
+    [] > description-of
+      sprintf > @
+        "is %s"
+        description-of.
+          matcher
