@@ -184,3 +184,32 @@
       sprintf > @
         "<%s> greater than value"
         x
+
+  # Compare object that matches when an examined float
+  # is equal to the specified operand, within a range of +/- error.
+  [operand err] > close-to
+
+    memory > mismatch
+
+    [a] > match
+      seq > @
+        mismatch.write actual-delta
+        actual-delta.leq 0.0
+      [] > actual-delta
+        sub. > @
+          abs.
+            a.sub operand
+          err
+
+    [] > describe-mismatch
+      sprintf > @
+        "<%s> differed by <%s> more than delta <%s>"
+        actual
+        mismatch
+        err
+
+    [] > description-of
+      sprintf > @
+        "a numeric value within <%s> of <%s>"
+        operand
+        err
