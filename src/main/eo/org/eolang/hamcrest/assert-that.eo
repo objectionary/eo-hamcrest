@@ -146,3 +146,22 @@
           matchers
           [i]
             i.description-of > @
+
+  # Compare object that matches when the examined object
+  # is greater than the specified value
+  [x] > greater-than
+
+    [a] > match
+      greater. > @
+        a
+        x
+
+    [] > describe-mismatch
+      sprintf > @
+        "was <%s>"
+        actual
+
+    [] > description-of
+      sprintf > @
+        "<%s> greater than value"
+        x
