@@ -65,6 +65,21 @@ SOFTWARE.
     <system>GitHub</system>
     <url>https://github.com/objectionary/eo-hamcrest/issues</url>
   </issueManagement>
+  <scm>
+    <connection>scm:git:git@github.com:objectionary/eo-hamcrest.git</connection>
+    <developerConnection>scm:git:git@github.com:objectionary/eo-hamcrest.git</developerConnection>
+    <url>https://github.com/objectionary/eo-hamcrest</url>
+  </scm>
+  <ciManagement>
+    <system>rultor</system>
+    <url>https://www.rultor.com/s/eo-hamcrest</url>
+  </ciManagement>
+  <distributionManagement>
+    <site>
+      <id>github-pages</id>
+      <url>https://github.com/objectionary/eo</url>
+    </site>
+  </distributionManagement>
   <dependencies>
     <dependency>
       <groupId>org.eolang</groupId>
