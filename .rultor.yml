@@ -1,3 +1,6 @@
+architects:
+  - yegor256
+  - graur
 assets:
   settings.xml: objectionary/secrets#settings.xml
   pubring.gpg: objectionary/secrets#pubring.gpg
