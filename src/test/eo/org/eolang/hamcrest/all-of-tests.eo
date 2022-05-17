@@ -24,8 +24,8 @@
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-# @todo #14 I assumed that we need to add
-# more tests after fixing issue in objectionary/eo#623
+# @todo #14:45min I assumed that we need to add
+#  more tests after fixing issue in objectionary/eo#623
 [] > all-of-numbers-test
   assert-that > @
     150.sub 50

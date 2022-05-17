@@ -24,9 +24,9 @@
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-# @todo #16:30 I assumed that we need to add
-# more tests and more varargs values after
-# fixing issue in objectionary/eo#623
+# @todo #16:45min I assumed that we need to add
+#  more tests and more varargs values after
+#  fixing issue in objectionary/eo#623
 [] > two-sum-described-as-equal-to-test
   assert-that > @
     15.add 5
