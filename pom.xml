@@ -77,7 +77,7 @@ SOFTWARE.
   <distributionManagement>
     <site>
       <id>github-pages</id>
-      <url>https://github.com/objectionary/eo</url>
+      <url>https://github.com/objectionary/eo-hamcrest</url>
     </site>
   </distributionManagement>
   <dependencies>
