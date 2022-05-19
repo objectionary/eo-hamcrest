@@ -24,6 +24,7 @@ release:
     branch=$(git rev-parse --abbrev-ref HEAD)
     git checkout gh-pages
     git reset --hard
+    sudo git config --global --add safe.directory "$(pwd)"
     sudo /bin/bash -c "cd '$(pwd)'; git clean -fd"
     rm -rf objectionary
     cp -R /tmp/objectionary .
