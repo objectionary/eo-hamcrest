@@ -163,7 +163,7 @@ More examples are [here](https://github.com/Graur/eo-hamcrest/tree/main/examples
 
 ## Custom matchers
 
-You can also implement your own matcher by passing parameter to the ```assert-that.test``` object:
+You can also implement your own matcher by passing parameter to the ```assert-that``` object:
 
 ```
 +package org.eolang
