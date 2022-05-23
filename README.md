@@ -26,7 +26,7 @@ This is a collection of test matchers for [EO](https://www.eolang.org) in [Hamcr
 ```
 
 The ```assert-that``` object is a stylized sentence for making a test assertion.
-In this example, the subject of the assertion is the object ```4.add 4``` that is the first method parameter. The second method parameter is an optional string description of the test case (```sum of two numbers```). The third parameter is a matcher for the first parameter, here a matcher that checks one object is equal and less than to another objects. The test passes since all conditions are ```TRUE```.
+In this example, the subject of the assertion is the object ```4.add 4``` that is the first method parameter. The second method parameter is a matcher for the first parameter, here a matcher that checks one object is equal and less than to another objects. The third parameter is is an optional string description of the test case (```sum of two numbers```). The test passes since all conditions are ```TRUE```.
 
 ### Matchers
 
