@@ -31,7 +31,7 @@
     matcher.match actual
     TRUE
     sprintf
-      "%s\nExpected: %s but: %s"
+      "%s\nExpected: %s\n     but: %s"
       if.
         reasons.is-empty
         ""
@@ -158,7 +158,7 @@
 
     [] > describe-mismatch
       sprintf > @
-        "was <%s>"
+        "was less than <%s>"
         actual
 
     [] > description-of
@@ -177,7 +177,7 @@
 
     [] > describe-mismatch
       sprintf > @
-        "was <%s>"
+        "was greater than <%s>"
         actual
 
     [] > description-of
@@ -262,3 +262,40 @@
         #  instead of data. The .map [i] i.as-string didn't work.
         #  We need to convert varargs to data[] somehow.
         args
+
+  # Wraps an existing matcher and apply it to every item in array.
+  [matcher] > has-item
+    memory > mismatches
+
+    [a] > match
+      [s] > apply
+        if. > @
+          matcher.match s
+          TRUE
+          seq
+            mismatches.write
+              mismatches.append
+                matcher.describe-mismatch
+            FALSE
+      seq > @
+        mismatches.write *
+        actual.reducei
+          FALSE
+          [acc i x]
+            or. > @
+              acc
+              apply x
+    # @todo #37:30min This string formatting doesn't work correctly.
+    #  Here we got message like: [was <[Lorg.eolang.Phi;@1189dd52>]
+    #  and possibly we need to change code below when string manipulation
+    #  objects will be created.
+    [] > describe-mismatch
+      sprintf > @
+        "mismatches were: [%s]"
+        "".joined mismatches
+
+    [] > description-of
+      sprintf > @
+        "an array containing %s"
+        description-of.
+          matcher
