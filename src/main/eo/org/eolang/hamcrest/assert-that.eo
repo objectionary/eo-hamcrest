@@ -285,13 +285,14 @@
             or. > @
               acc
               apply x
+
     # @todo #37:30min This string formatting doesn't work correctly.
     #  Here we got message like: [was <[Lorg.eolang.Phi;@1189dd52>]
     #  and possibly we need to change code below when string manipulation
     #  objects will be created.
     [] > describe-mismatch
       sprintf > @
-        "mismatches were: [%s]"
+        "mismatches: [%s]"
         "".joined mismatches
 
     [] > description-of
@@ -299,3 +300,49 @@
         "an array containing %s"
         description-of.
           matcher
+
+  # Wraps an array of matchers and apply them to every item in array.
+  [matchers...] > has-items
+    memory > mismatches
+
+    [a] > all-match
+      memory > count
+      seq > @
+        count.write 0
+        while.
+          and.
+            count.less (matchers.length)
+            count.geq 0
+          [i]
+            if. > @
+              (matchers.get i).match a
+              count.write (i.add 1)
+              seq
+                mismatches.write
+                  mismatches.append
+                    describe-mismatch.
+                      matchers.get i
+                count.write -1
+        count.greater 0
+
+    [a] > match
+      seq > @
+        mismatches.write *
+        actual.reducei
+          FALSE
+          [acc i el]
+            or. > @
+              acc
+              all-match el
+
+    [] > describe-mismatch
+      sprintf > @
+        "mismatches: [%s]"
+        ", ".joined mismatches
+
+    [] > description-of
+      " and ".joined > @
+        map.
+          matchers
+          [i]
+            i.description-of > @

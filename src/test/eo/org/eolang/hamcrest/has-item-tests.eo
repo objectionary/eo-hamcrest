@@ -42,3 +42,15 @@
     $.has-item
       $.is
         $.greater-than 10.0
+
+[] > has-items-int-test
+  assert-that > @
+    * 99 101
+    $.has-items
+      $.greater-than 100
+
+[] > nested-has-items
+  assert-that > @
+    * "a" "b" "c" 'd'
+    $.has-items
+      $.equal-to "c"
