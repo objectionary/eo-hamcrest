@@ -274,7 +274,7 @@
           TRUE
           seq
             mismatches.write
-              mismatches.append
+              mismatches.with
                 matcher.describe-mismatch
             FALSE
       seq > @
@@ -319,7 +319,7 @@
               count.write (i.add 1)
               seq
                 mismatches.write
-                  mismatches.append
+                  mismatches.with
                     describe-mismatch.
                       matchers.get i
                 count.write -1
@@ -334,6 +334,48 @@
             or. > @
               acc
               all-match el
+
+    [] > describe-mismatch
+      sprintf > @
+        "mismatches: [%s]"
+        ", ".joined mismatches
+
+    [] > description-of
+      " and ".joined > @
+        map.
+          matchers
+          [i]
+            i.description-of > @
+
+  [matchers...] > array-each
+
+    memory > mismatches
+
+    [] > check-length
+      eq. > @
+        matchers.length
+        actual.length
+
+    [a] > match
+      if. > @
+        check-length
+        seq
+          mismatches.write *
+          a.reducei
+            TRUE
+            [acc i el]
+              and. > @
+                acc
+                if.
+                  (matchers.get i).match el
+                  TRUE
+                  seq
+                    mismatches.write
+                      mismatches.with
+                        describe-mismatch.
+                          matchers.get i
+                    FALSE
+        FALSE
 
     [] > describe-mismatch
       sprintf > @
