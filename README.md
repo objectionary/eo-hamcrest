@@ -89,12 +89,12 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 [] > collections-test
   assert-that > @
     * 50 't' "smth"
-    $.array
+    $.array-each
       $.equal-to 50
       $.equal-to 't'
       $.equal-to "smth"
 ```
-```array``` - test an array’s elements against an array of matchers
+```array-each``` - test an array’s elements against an array of matchers
 
 ```
 +package org.eolang
@@ -105,10 +105,7 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
   assert-that > @
     * 1 5 'f' 12
     $.has-item
-      [i]
-        assert-that > @
-          i
-          $.less-than 4
+      $.less-than 4
 ```
 
 ```.has-item```, ```.has-items``` - test a collection contains elements
