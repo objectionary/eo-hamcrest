@@ -54,3 +54,19 @@
     * "a" "b" "c" 'd'
     $.has-items
       $.equal-to "c"
+
+[] > arrays-each-items
+  assert-that > @
+    * 1 2
+    $.array-each
+      $.equal-to 1
+      $.equal-to 2
+
+[] > arrays-each-items-complex-case
+  assert-that > @
+    * "vice" 'c' -5 (13.as-float)
+    $.array-each
+      $.equal-to "vice"
+      $.equal-to 'c'
+      $.less-than 0
+      $.greater-than 10.0
