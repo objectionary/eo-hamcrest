@@ -4,6 +4,7 @@ objectionary/tests/org/eolang/hamcrest/anything-tests.eo
 objectionary/tests/org/eolang/hamcrest/is-tests.eo
 objectionary/tests/org/eolang/hamcrest/equal-to-tests.eo
 objectionary/tests/org/eolang/hamcrest/less-than-tests.eo
+objectionary/tests/org/eolang/hamcrest/arrays-matchers-tests.eo
 objectionary/tests/org/eolang/hamcrest/greater-than-tests.eo
 objectionary/tests/org/eolang/hamcrest/any-of-tests.eo
 objectionary/tests/org/eolang/hamcrest/close-to-tests.eo
