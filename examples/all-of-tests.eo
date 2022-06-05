@@ -24,49 +24,28 @@
 +alias org.eolang.hamcrest.assert-that
 +junit
 
-[] > has-item-int-test
+[] > all-of-numbers-test
   assert-that > @
-    * 1 2 3
-    $.has-item
-      $.equal-to 2
+    150.sub 50
+    $.all-of
+      $.equal-to 100
+    "all of numbers conditions"
 
-[] > has-item-string-test
+[] > all-of-several
   assert-that > @
-    * "1" "2" "3"
-    $.has-item
-      $.equal-to "3"
+    15.mul 3
+    $.all-of
+      $.equal-to 45
+      $.greater-than 40
+      $.less-than 100
+    "all of conditions"
 
-[] > has-item-float-test
+[] > all-of-close-to
   assert-that > @
-    * 1.0 44.0
-    $.has-item
-      $.is
-        $.greater-than 10.0
-
-[] > has-items-int-test
-  assert-that > @
-    * 99 101
-    $.has-items
-      $.greater-than 100
-
-[] > nested-has-items
-  assert-that > @
-    * "a" "b" "c" "d"
-    $.has-items
-      $.equal-to "c"
-
-[] > arrays-each-items
-  assert-that > @
-    * 1 2
-    $.array-each
-      $.equal-to 1
-      $.equal-to 2
-
-[] > arrays-each-items-complex-case
-  assert-that > @
-    * "vice" "c" -5 (13.as-float)
-    $.array-each
-      $.equal-to "vice"
-      $.equal-to "c"
-      $.less-than 0
+    22.0
+    $.all-of
+      $.equal-to
+        22.as-float
       $.greater-than 10.0
+      $.close-to 20.0 2.2
+    "all of conditions"
