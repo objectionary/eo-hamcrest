@@ -27,5 +27,7 @@
  *
  * @since 0.2
  * @checkstyle PackageNameCheck (5 lines)
+ * @checkstyle PackageDeclarationCheck (5 lines)
+ * @checkstyle PackageCase (5 lines)
  */
 package EOorg.EOeolang.EOhamcrest;
