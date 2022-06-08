@@ -22,9 +22,9 @@
 
 +package org.eolang.hamcrest
 +home https://github.com/objectionary/eo-hamcrest
-+version 0.2.1
++version 0.2.2
 +alias sprintf org.eolang.txt.sprintf
-+rt jvm org.eolang:eo-hamcrest:0.2.1
++rt jvm org.eolang:eo-hamcrest:0.2.2
 
 # Main object for assertions
 [actual matcher reasons...] > assert-that
@@ -84,10 +84,10 @@
   # if an earlier matcher returns false.
   [matchers...] > all-of
 
-    memory > mismatch
+    memory 0 > mismatch
 
     [a] > match
-      memory > count
+      memory 0 > count
       seq > @
         count.write 0
         while.
@@ -123,7 +123,7 @@
   [matchers...] > any-of
 
     [a] > match
-      memory > count
+      memory 0 > count
       seq > @
         count.write 0
         while.
@@ -191,7 +191,7 @@
   # is equal to the specified operand, within a range of +/- error.
   [operand err] > close-to
 
-    memory > mismatch
+    memory 0 > mismatch
 
     [a] > match
       seq > @
@@ -267,7 +267,7 @@
 
   # Wraps an existing matcher and apply it to every item in array.
   [matcher] > has-item
-    memory > mismatches
+    memory 0 > mismatches
 
     [a] > match
       [s] > apply
@@ -305,7 +305,7 @@
 
   # Wraps an array of matchers and apply them to every item in array.
   [matchers...] > has-items
-    memory > mismatches
+    memory 0 > mismatches
 
     [a] > all-match
       memory > count
@@ -353,7 +353,7 @@
   # The array size must equal the number of element matchers.
   [matchers...] > array-each
 
-    memory > mismatches
+    memory 0 > mismatches
 
     [] > check-length
       eq. > @
