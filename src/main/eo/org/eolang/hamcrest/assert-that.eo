@@ -307,7 +307,7 @@
   [matchers...] > has-items
     memory 0 > mismatches
 
-    [a] 0 > all-match
+    [a] > all-match
       memory > count
       seq > @
         count.write 0
