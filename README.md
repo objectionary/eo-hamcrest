@@ -3,11 +3,14 @@
 [![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
 [![We recommend IntelliJ IDEA](https://www.elegantobjects.org/intellij-idea.svg)](https://www.jetbrains.com/idea/)
 
+[![Maven Central](https://img.shields.io/maven-central/v/org.eolang/eo-hamcrest.svg)](https://maven-badges.herokuapp.com/maven-central/org.eolang/eo-hamcrest)
 [![mvn](https://github.com/objectionary/eo-hamcrest/actions/workflows/mvn.yml/badge.svg)](https://github.com/objectionary/eo-hamcrest/actions/workflows/mvn.yml)
 [![codecov](https://codecov.io/gh/cqfn/eo/branch/master/graph/badge.svg)](https://codecov.io/gh/cqfn/eo)
+[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Graur/eo-tests/blob/master/LICENSE.txt)
+
 [![Hits-of-Code](https://hitsofcode.com/github/graur/eo-hamcrest)](https://hitsofcode.com/github/graur/eo-hamcrest/view)
 ![Code-Size](https://img.shields.io/github/languages/code-size/objectionary/eo-hamcrest)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Graur/eo-tests/blob/master/LICENSE.txt)
+![Lines of code](https://img.shields.io/tokei/lines/github/objectionary/eo-hamcrest)
 
 This is a collection of test matchers for [EO](https://www.eolang.org) in [Hamcrest](http://hamcrest.org) style, which allow you to make unit tests declarative and elegant. Here is an example of a unit test:
 
