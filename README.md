@@ -1,6 +1,7 @@
 <img src="https://www.yegor256.com/images/books/elegant-objects/cactus.svg" height="100px" />
 
 [![EO principles respected here](https://www.elegantobjects.org/badge.svg)](https://www.elegantobjects.org)
+[![DevOps By Rultor.com](http://www.rultor.com/b/objectionary/eo-hamcrest)](http://www.rultor.com/p/objectionary/eo-hamcrest)
 [![We recommend IntelliJ IDEA](https://www.elegantobjects.org/intellij-idea.svg)](https://www.jetbrains.com/idea/)
 
 [![Maven Central](https://img.shields.io/maven-central/v/org.eolang/eo-hamcrest.svg)](https://maven-badges.herokuapp.com/maven-central/org.eolang/eo-hamcrest)
