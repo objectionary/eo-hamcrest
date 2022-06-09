@@ -8,6 +8,7 @@
 [![codecov](https://codecov.io/gh/cqfn/eo/branch/master/graph/badge.svg)](https://codecov.io/gh/cqfn/eo)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Graur/eo-tests/blob/master/LICENSE.txt)
 
+[![Maintainability](https://api.codeclimate.com/v1/badges/b8b59692f3c8c973ac54/maintainability)](https://codeclimate.com/github/objectionary/eo-hamcrest/maintainability)
 [![Hits-of-Code](https://hitsofcode.com/github/graur/eo-hamcrest)](https://hitsofcode.com/github/graur/eo-hamcrest/view)
 ![Code-Size](https://img.shields.io/github/languages/code-size/objectionary/eo-hamcrest)
 ![Lines of code](https://img.shields.io/tokei/lines/github/objectionary/eo-hamcrest)
