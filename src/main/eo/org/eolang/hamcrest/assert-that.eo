@@ -245,12 +245,7 @@
   # including its mismatch description.
   [matcher format args...] > described-as
 
-    [a] > match
-      matcher.match a > @
-
-    [] > describe-mismatch
-      describe-mismatch. > @
-        matcher
+    matcher > @
 
     [] > description-of
       sprintf > @
