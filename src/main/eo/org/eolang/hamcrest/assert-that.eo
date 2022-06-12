@@ -220,12 +220,7 @@
   # but allowing tests to be slightly more expressive.
   [matcher] > is
 
-    [a] > match
-      matcher.match a > @
-
-    [] > describe-mismatch
-      describe-mismatch. > @
-        matcher
+    matcher > @
 
     [] > description-of
       sprintf > @
