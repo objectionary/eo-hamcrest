@@ -23,7 +23,7 @@ This is a collection of test matchers for [EO](https://www.eolang.org) in [Hamcr
 
 [] > my-first-test
   assert-that > @
-    4.add 4
+    4.plus 4
     $.all-of
       $.equal-to 8
       $.less-than 100
@@ -31,7 +31,7 @@ This is a collection of test matchers for [EO](https://www.eolang.org) in [Hamcr
 ```
 
 The ```assert-that``` object is a stylized sentence for making a test assertion.
-In this example, the subject of the assertion is the object ```4.add 4``` that is the first method parameter. The second method parameter is a matcher for the first parameter, here a matcher that checks one object is equal and less than to another objects. The third parameter is is an optional string description of the test case (```sum of two numbers```). The test passes since all conditions are ```TRUE```.
+In this example, the subject of the assertion is the object ```4.plus 4``` that is the first method parameter. The second method parameter is a matcher for the first parameter, here a matcher that checks one object is equal and less than to another objects. The third parameter is is an optional string description of the test case (```sum of two numbers```). The test passes since all conditions are ```TRUE```.
 
 ### Matchers
 
@@ -46,7 +46,7 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 
 [] > core-matchers-test
   assert-that > @
-    5.mul 4
+    5.times 4
     $.is
       $.anything
     "multiply of two numbers"
@@ -66,7 +66,7 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 
 [] > logical-matchers-test
   assert-that > @
-    50.sub 10
+    50.minus 10
     $.all-of
       $.not 
         $.equal-to 5

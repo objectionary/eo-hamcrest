@@ -28,7 +28,7 @@
 
 [] > two-sum-described-as-equal-to-test
   assert-that > @
-    15.add 5
+    15.plus 5
     $.described-as
       $.equal-to 20
       "this message overrides matchers description, and add values: %s"

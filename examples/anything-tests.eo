@@ -28,7 +28,7 @@
 
 [] > anything-two-sum-test
   assert-that > @
-    4.add 4
+    4.plus 4
     $.is
       $.anything
     "sum of anything is always true"
@@ -42,7 +42,7 @@
 
 [] > anything-two-floats-sum-test
   assert-that > @
-    4.2.add 3.9
+    4.2.plus 3.9
     $.is
       $.anything
     "sum of two floats of anything is always true"

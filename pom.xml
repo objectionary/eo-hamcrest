@@ -34,6 +34,11 @@ SOFTWARE.
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
   <name>eo-hamcrest</name>
+  <properties>
+    <eolang.version>0.23.11</eolang.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+  </properties>
   <description>Hamcrest matchers for EOLANG</description>
   <url>https://github.com/objectionary/eo-hamcrest</url>
   <inceptionYear>2022</inceptionYear>
@@ -82,7 +87,7 @@ SOFTWARE.
     <dependency>
       <groupId>org.eolang</groupId>
       <artifactId>eo-runtime</artifactId>
-      <version>0.23.7</version>
+      <version>${eolang.version}</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
@@ -102,7 +107,7 @@ SOFTWARE.
       <plugin>
         <groupId>org.eolang</groupId>
         <artifactId>eo-maven-plugin</artifactId>
-        <version>0.23.7</version>
+        <version>${eolang.version}</version>
         <executions>
           <execution>
             <id>compile</id>
