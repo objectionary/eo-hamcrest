@@ -35,7 +35,7 @@
 
 [] > all-of-several
   assert-that > @
-    15.mul 3
+    15.times 3
     $.all-of
       $.equal-to 45
       $.greater-than 40
