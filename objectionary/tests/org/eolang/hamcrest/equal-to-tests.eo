@@ -22,13 +22,13 @@
 
 +package org.eolang.hamcrest
 +home https://github.com/objectionary/eo-hamcrest
-+version 0.2.3
++version 0.2.4
 +alias org.eolang.hamcrest.assert-that
 +junit
 
 [] > two-sum-test
   assert-that > @
-    4.add 4
+    4.plus 4
     $.equal-to 8
     "sum of two numbers"
 
@@ -40,7 +40,7 @@
 
 [] > two-floats-sum-test
   assert-that > @
-    4.1.add 3.9
+    4.1.plus 3.9
     $.equal-to 8.0
     "sum of two floats"
 

@@ -22,7 +22,7 @@
 
 +package org.eolang.hamcrest
 +home https://github.com/objectionary/eo-hamcrest
-+version 0.2.3
++version 0.2.4
 +alias org.eolang.hamcrest.assert-that
 +junit
 
@@ -35,7 +35,7 @@
 
 [] > any-of-several
   assert-that > @
-    100.sub 5
+    100.minus 5
     $.any-of
       $.equal-to 45
       $.greater-than 40

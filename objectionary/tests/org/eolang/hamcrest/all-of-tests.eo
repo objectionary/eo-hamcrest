@@ -22,20 +22,20 @@
 
 +package org.eolang.hamcrest
 +home https://github.com/objectionary/eo-hamcrest
-+version 0.2.3
++version 0.2.4
 +alias org.eolang.hamcrest.assert-that
 +junit
 
 [] > all-of-numbers-test
   assert-that > @
-    150.sub 50
+    150.minus 50
     $.all-of
       $.equal-to 100
     "all of numbers conditions"
 
 [] > all-of-several
   assert-that > @
-    15.mul 3
+    15.times 3
     $.all-of
       $.equal-to 45
       $.greater-than 40

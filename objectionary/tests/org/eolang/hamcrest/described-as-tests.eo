@@ -22,13 +22,13 @@
 
 +package org.eolang.hamcrest
 +home https://github.com/objectionary/eo-hamcrest
-+version 0.2.3
++version 0.2.4
 +alias org.eolang.hamcrest.assert-that
 +junit
 
 [] > two-sum-described-as-equal-to-test
   assert-that > @
-    15.add 5
+    15.plus 5
     $.described-as
       $.equal-to 20
       "this message overrides matchers description, and add values: %s"

@@ -22,23 +22,23 @@
 
 +package org.eolang.hamcrest
 +home https://github.com/objectionary/eo-hamcrest
-+version 0.2.3
++version 0.2.4
 +alias org.eolang.hamcrest.assert-that
 +junit
 
 [] > not-equal-two-sum-test
   assert-that > @
-    5.add 10
+    5.plus 10
     $.not
       $.equal-to 55
     "sum of two numbers"
 
 [] > not-greater-than-two-sum-test
   assert-that > @
-    111.add 89
+    111.plus 89
     $.not
       $.greater-than 201
-    "is 111.add 89 greater than 201"
+    "is 111.plus 89 greater than 201"
 
 [] > not-equal-two-strings-test
   assert-that > @
@@ -52,9 +52,9 @@
     $.not
       $.equal-to 18.35
 
-[] > not-greater-than-floats-mul-test
+[] > not-greater-than-floats-times-test
   assert-that > @
-    101.35.mul 2.2
+    101.35.times 2.2
     $.not
       $.greater-than 250.31
 
