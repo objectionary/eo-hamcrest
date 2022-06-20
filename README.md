@@ -31,7 +31,7 @@ This is a collection of test matchers for [EO](https://www.eolang.org) in [Hamcr
 ```
 
 The ```assert-that``` object is a stylized sentence for making a test assertion.
-In this example, the subject of the assertion is the object ```4.plus 4``` that is the first method parameter. The second method parameter is a matcher for the first parameter, here a matcher that checks one object is equal and less than to another objects. The third parameter is is an optional string description of the test case (```sum of two numbers```). The test passes since all conditions are ```TRUE```.
+In this example, the subject of the assertion is the object ```4.plus 4``` that is the first method parameter. The second method parameter is a `matcher` for the first parameter, here a matcher that checks one object is equal and less than to another objects. The third parameter is an optional string description of the test case (```sum of two numbers```). The test passes since all conditions are ```TRUE```.
 
 ### Matchers
 
@@ -93,10 +93,10 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 
 [] > collections-test
   assert-that > @
-    * 50 't' "smth"
+    * 50 "t" "smth"
     $.array-each
       $.equal-to 50
-      $.equal-to 't'
+      $.equal-to "t"
       $.equal-to "smth"
 ```
 ```array-each``` - test an array’s elements against an array of matchers
@@ -108,7 +108,7 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 
 [] > collections-test
   assert-that > @
-    * 1 5 'f' 12
+    * 1 5 "f" 12
     $.has-item
       $.less-than 4
 ```
@@ -192,7 +192,7 @@ You can also implement your own matcher by passing parameter to the ```assert-th
 
 ## How to Contribute
 
-Fork repository, make changes, send us a pull request.
+Fork repository, make changes, send us a [pull request](https://www.yegor256.com/2014/04/15/github-guidelines.html).
 We will review your changes and apply them to the `master` branch shortly,
 provided they don't violate our quality standards. To avoid frustration,
 before sending us your pull request please run full Maven build:
