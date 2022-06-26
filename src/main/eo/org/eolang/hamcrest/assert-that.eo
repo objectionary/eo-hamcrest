@@ -37,7 +37,7 @@
       if.
         reasons.is-empty
         ""
-        reasons.get 0
+        reasons.at 0
       description-of.
         matcher
       describe-mismatch.
@@ -96,12 +96,12 @@
             count.gte 0
           [i]
             if. > @
-              (matchers.get i).match a
+              (matchers.at i).match a
               count.write (i.plus 1)
               seq
                 mismatch.write
                   describe-mismatch.
-                    matchers.get i
+                    matchers.at i
                 count.write -1
         count.gt 0
 
@@ -132,7 +132,7 @@
             count.gte 0
           [i]
             if. > @
-              (matchers.get i).match a
+              (matchers.at i).match a
               count.write -1
               count.write (i.plus 1)
         count.lt 0
@@ -307,13 +307,13 @@
             count.gte 0
           [i]
             if. > @
-              (matchers.get i).match a
+              (matchers.at i).match a
               count.write (i.plus 1)
               seq
                 mismatches.write
                   mismatches.with
                     describe-mismatch.
-                      matchers.get i
+                      matchers.at i
                 count.write -1
         count.gt 0
 
@@ -361,13 +361,13 @@
               and. > @
                 acc
                 if.
-                  (matchers.get i).match el
+                  (matchers.at i).match el
                   TRUE
                   seq
                     mismatches.write
                       mismatches.with
                         describe-mismatch.
-                          matchers.get i
+                          matchers.at i
                     FALSE
         FALSE
 
