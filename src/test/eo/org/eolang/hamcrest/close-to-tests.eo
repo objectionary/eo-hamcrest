@@ -36,11 +36,6 @@
     0.0
     $.close-to 0.0 1.2
 
-[] > neg-zero-is-close-to-float-with-delta-test
-  assert-that > @
-    -0.0
-    $.close-to 0.0 1.2
-
 [] > neg-float-is-close-to-neg-float-with-delta-test
   assert-that > @
     -123456789.123456

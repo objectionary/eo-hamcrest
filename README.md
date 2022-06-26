@@ -161,7 +161,7 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 ```.contains-string,``` ```.ends-with```, ```.starts-with``` - test string matching
 
 
-More examples are [here](https://github.com/Graur/eo-hamcrest/tree/main/examples)
+More examples are [here](https://github.com/Graur/eo-hamcrest/tree/main/src/test/eo/org/rolang/hamcrest)
 
 ## Custom matchers
 
