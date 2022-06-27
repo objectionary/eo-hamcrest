@@ -22,8 +22,9 @@
 
 +package org.eolang.hamcrest
 +home https://github.com/objectionary/eo-hamcrest
-+version 0.2.4
++version 0.2.5
 +alias org.eolang.hamcrest.assert-that
++alias org.eolang.math.number
 +junit
 
 [] > any-of-numbers-test
@@ -47,7 +48,8 @@
     30.0
     $.any-of
       $.equal-to
-        1000.as-float
+        number 1000
+        .as-float
       $.greater-than 777.0
       $.close-to 30.0 0.1
     "any of conditions"
