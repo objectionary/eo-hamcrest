@@ -19,7 +19,7 @@ This is a collection of test matchers for [EO](https://www.eolang.org) in [Hamcr
 ```
 +package org.eolang
 +alias org.eolang.hamcrest.assert-that
-+junit
++junit1
 
 [] > my-first-test
   assert-that > @
