@@ -39,4 +39,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: Graur/pdd-action@master
+      - uses: g4s8/pdd-action@master
