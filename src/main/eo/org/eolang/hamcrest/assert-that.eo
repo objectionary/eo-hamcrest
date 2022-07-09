@@ -37,7 +37,9 @@
     sprintf
       "%s\nExpected: %s\n     but: %s"
       if.
-        reasons.is-empty
+        is-empty.
+          list
+          reasons
         ""
         reasons.at 0
       description-of.
