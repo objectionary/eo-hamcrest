@@ -35,7 +35,7 @@ SOFTWARE.
   <packaging>jar</packaging>
   <name>eo-hamcrest</name>
   <properties>
-    <eolang.version>0.23.15</eolang.version>
+    <eolang.version>0.23.17</eolang.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
