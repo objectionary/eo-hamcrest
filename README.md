@@ -108,7 +108,7 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 
 [] > collections-test
   assert-that > @
-    * 1 5 "f" 12
+    * 1 5 "t" 12
     $.has-item
       $.less-than 4
 ```
