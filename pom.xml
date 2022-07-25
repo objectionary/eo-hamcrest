@@ -27,7 +27,7 @@ SOFTWARE.
   <parent>
     <groupId>com.jcabi</groupId>
     <artifactId>parent</artifactId>
-    <version>0.57.2</version>
+    <version>0.59.0</version>
   </parent>
   <groupId>org.eolang</groupId>
   <artifactId>eo-hamcrest</artifactId>
@@ -35,7 +35,7 @@ SOFTWARE.
   <packaging>jar</packaging>
   <name>eo-hamcrest</name>
   <properties>
-    <eolang.version>0.24.0</eolang.version>
+    <eolang.version>0.25.4</eolang.version>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
   </properties>
@@ -119,6 +119,11 @@ SOFTWARE.
               <goal>unspile</goal>
               <goal>copy</goal>
             </goals>
+            <configuration>
+              <keepBinaries>
+                <glob>EOorg/EOeolang/EOhamcrest/**</glob>
+              </keepBinaries>
+            </configuration>
           </execution>
           <execution>
             <id>test-compile</id>
