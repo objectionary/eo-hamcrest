@@ -39,7 +39,7 @@
       if.
         is-empty.
           list
-          reasons
+            reasons
         ""
         reasons.at 0
       description-of.
