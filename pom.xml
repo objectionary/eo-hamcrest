@@ -134,6 +134,7 @@ SOFTWARE.
               <goal>transpile</goal>
             </goals>
             <configuration>
+              <scope>test</scope>
               <sourcesDir>${project.basedir}/src/test/eo</sourcesDir>
               <targetDir>${project.build.directory}/eo-test</targetDir>
               <addSourcesRoot>false</addSourcesRoot>
