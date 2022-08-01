@@ -26,4 +26,6 @@ jobs:
           key: ${{ runner.os }}-jdk-${{ matrix.java }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-jdk-${{ matrix.java }}-maven-
+      - run: |
+          [ "${{ runner.os }}" == "Windows" ] && chcp 65001
       - run: mvn clean install -Pqulice --errors --batch-mode
