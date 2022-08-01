@@ -108,6 +108,7 @@ SOFTWARE.
         <groupId>org.codehaus.mojo</groupId>
         <artifactId>versions-maven-plugin</artifactId>
         <version>2.1</version>
+        <configuration combine.self="override"/>
       </plugin>
       <plugin>
         <groupId>org.eolang</groupId>
