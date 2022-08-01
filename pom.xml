@@ -101,15 +101,18 @@ SOFTWARE.
       <version>5.6.2</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <!--
+      AOP Aspects.
+      @see http://aspects.jcabi.com/
+      -->
+      <groupId>com.jcabi</groupId>
+      <artifactId>jcabi-aspects</artifactId>
+      <version>0.23.2</version>
+    </dependency>
   </dependencies>
   <build>
     <plugins>
-      <plugin>
-        <!-- @see http://www.sonatype.com/books/nexus-book/reference/staging-sect-deployment.html -->
-        <groupId>org.sonatype.plugins</groupId>
-        <artifactId>nexus-staging-maven-plugin</artifactId>
-        <version>1.6.13</version>
-      </plugin>
       <plugin>
         <groupId>org.eolang</groupId>
         <artifactId>eo-maven-plugin</artifactId>
