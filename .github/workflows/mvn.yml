@@ -46,5 +46,5 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-jdk-${{ matrix.java }}-maven-
       - run: |
-          chcp 65001
+          chcp 1251
           mvn clean install -Pqulice --errors --batch-mode
