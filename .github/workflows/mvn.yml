@@ -12,7 +12,7 @@ jobs:
     name: Tests
     strategy:
       matrix:
-        os: [ubuntu-20.04, windows-2022, macos-12]
+        os: [ubuntu-20.04, macos-12]
         java: [11, 17]
     runs-on: ${{ matrix.os }}
     steps:
@@ -26,4 +26,25 @@ jobs:
           key: ${{ runner.os }}-jdk-${{ matrix.java }}-maven-${{ hashFiles('**/pom.xml') }}
           restore-keys: |
             ${{ runner.os }}-jdk-${{ matrix.java }}-maven-
-      - run: ${{ runner.os }} == Windows && chcp 65001 | mvn clean install -Pqulice --errors --batch-mode
+      - run: mvn clean install -Pqulice --errors --batch-mode
+  wintest:
+    name: WinTests
+    strategy:
+      matrix:
+        os: [windows-2022]
+        java: [11, 17]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-java@v1
+        with:
+          java-version: ${{ matrix.java }}
+      - uses: actions/cache@v1
+        with:
+          path: ~/.m2/repository
+          key: ${{ runner.os }}-jdk-${{ matrix.java }}-maven-${{ hashFiles('**/pom.xml') }}
+          restore-keys: |
+            ${{ runner.os }}-jdk-${{ matrix.java }}-maven-
+      - run: |
+          chcp 65001
+          mvn clean install -Pqulice --errors --batch-mode
