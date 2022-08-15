@@ -116,7 +116,7 @@
 
     [] > description-of
       " and ".joined > @
-        map.
+        mapped.
           list
             matchers
           [i]
@@ -149,7 +149,7 @@
 
     [] > description-of
       " or ".joined > @
-        map.
+        mapped.
           list
             matchers
           [i]
@@ -277,7 +277,7 @@
             FALSE
       seq > @
         mismatches.write *
-        reducei.
+        reducedi.
           list
             actual
           FALSE
@@ -328,7 +328,7 @@
     [a] > match
       seq > @
         mismatches.write *
-        reducei.
+        reducedi.
           list
             actual
           FALSE
@@ -344,7 +344,7 @@
 
     [] > description-of
       " and ".joined > @
-        map.
+        mapped.
           list
             matchers
           [i]
@@ -366,7 +366,7 @@
         check-length
         seq
           mismatches.write *
-          reducei.
+          reducedi.
             list
               a
             TRUE
@@ -391,7 +391,7 @@
 
     [] > description-of
       " and ".joined > @
-        map.
+        mapped.
           list
             matchers
           [i]
