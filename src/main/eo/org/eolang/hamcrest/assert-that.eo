@@ -22,6 +22,7 @@
 
 +alias number org.eolang.math.number
 +alias org.eolang.collections.list
++alias org.eolang.txt.text
 +alias sprintf org.eolang.txt.sprintf
 +home https://github.com/objectionary/eo-hamcrest
 +package org.eolang.hamcrest
@@ -115,7 +116,8 @@
         mismatch
 
     [] > description-of
-      " and ".joined > @
+      joined. > @
+        text " and "
         mapped.
           list
             matchers
@@ -148,7 +150,8 @@
         actual
 
     [] > description-of
-      " or ".joined > @
+      joined. > @
+        text " or "
         mapped.
           list
             matchers
@@ -293,7 +296,7 @@
     [] > describe-mismatch
       sprintf > @
         "mismatches: [%s]"
-        "".joined mismatches
+        (text "").joined mismatches
 
     [] > description-of
       sprintf > @
@@ -340,10 +343,11 @@
     [] > describe-mismatch
       sprintf > @
         "mismatches: [%s]"
-        ", ".joined mismatches
+        (text ", ").joined mismatches
 
     [] > description-of
-      " and ".joined > @
+      joined. > @
+        text " and "
         mapped.
           list
             matchers
@@ -387,10 +391,10 @@
     [] > describe-mismatch
       sprintf > @
         "mismatches: [%s]"
-        ", ".joined mismatches
+        (text ", ").joined mismatches
 
     [] > description-of
-      " and ".joined > @
+      (text " and ").joined > @
         mapped.
           list
             matchers

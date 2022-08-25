@@ -35,7 +35,7 @@ SOFTWARE.
   <packaging>jar</packaging>
   <name>eo-hamcrest</name>
   <properties>
-    <eolang.version>0.27.0</eolang.version>
+    <eolang.version>0.27.1</eolang.version>
   </properties>
   <description>Hamcrest matchers for EOLANG</description>
   <url>https://github.com/objectionary/eo-hamcrest</url>
@@ -160,7 +160,6 @@ SOFTWARE.
             <configuration>
               <excludes combine.children="append">
                 <exclude>pmd:.*</exclude>
-                <exclude>duplicatefinder:.*</exclude>
               </excludes>
             </configuration>
           </plugin>
