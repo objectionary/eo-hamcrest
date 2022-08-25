@@ -64,3 +64,12 @@
     $.not
       $.equal-to TRUE
     "two bools"
+
+[] > compare-different-strings
+  "abc" > a!
+  assert-that > @
+    a
+    $.is
+      $.not
+        $.equal-to "abd"
+
