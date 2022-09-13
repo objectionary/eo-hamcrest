@@ -44,7 +44,7 @@
     suggestion
     "\nExpected: <5> equal to value\n     but: was <1>"
 
-[] > equal-to-int-failed
+[] > equal-to-int-failed-output
   [] > suggestion
     assert-that > @
       4
@@ -53,7 +53,7 @@
     suggestion
     "\nExpected: <9> equal to value\n     but: was <4>"
 
-[] > equal-to-str-failed
+[] > equal-to-str-failed-output
   [] > suggestion
     assert-that > @
       "one"
@@ -62,7 +62,7 @@
     suggestion
     "\nExpected: <two> equal to value\n     but: was <one>"
 
-[] > equal-to-float-failed
+[] > equal-to-float-failed-output
   [] > suggestion
     assert-that > @
       44.0

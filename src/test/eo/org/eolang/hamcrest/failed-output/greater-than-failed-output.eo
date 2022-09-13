@@ -26,20 +26,20 @@
 +package org.eolang.hamcrest.failed-output
 +version 0.0.0
 
-[] > delayed-calculation
-  memory 0 > m
-  [x] > inc
-    seq > @
-      m.write (m.plus x)
-      m
+[] > greater-than-int-failed-output
   [] > suggestion
     assert-that > @
-      inc
-        inc
-          inc
-            inc
-              1
-      $.equal-to 5
-  eq. > @
+      13
+      $.greater-than 100
+  assert-that > @
     suggestion
-    "\nExpected: <5> equal to value\n     but: was <1>"
+    $.equal-to "\nExpected: <100> less than value\n     but: was less than <13>"
+
+[] > greater-than-float-failed-output
+  [] > suggestion
+    assert-that > @
+      13.0
+      $.greater-than 100.0
+  assert-that > @
+    suggestion
+    $.equal-to "\nExpected: <100.0> less than value\n     but: was less than <13.0>"
