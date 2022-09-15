@@ -20,14 +20,26 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
++alias org.eolang.hamcrest.assert-that
 +home https://github.com/objectionary/eo-hamcrest
 +junit
 +package org.eolang.hamcrest.failed-output
 +version 0.0.0
 
-# @todo #41:30min To add several tests for checking
-#  less-than matcher output, when assert-that object return string
-#  and test suggestion is false. Check the origin ticket to get
-#  more information.
-[] > less-than-failed-output
-  nop > @
+[] > less-than-int-failed-output
+  [] > suggestion
+    assert-that > @
+      1
+      $.less-than 0
+  assert-that > @
+    suggestion
+    $.equal-to "\nExpected: <0> greater than value\n     but: was greater than <1>"
+
+[] > less-than-float-failed-output
+  [] > suggestion
+    assert-that > @
+      1.0
+      $.less-than 0.0
+  assert-that > @
+    suggestion
+    $.equal-to "\nExpected: <0.0> greater than value\n     but: was greater than <1.0>"
