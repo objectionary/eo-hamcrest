@@ -33,7 +33,7 @@
       $.less-than 0
   assert-that > @
     suggestion
-    $.equal-to "\nExpected: <0> greater than value\n     but: was greater than <1>"
+    $.equal-to "\nExpected: <0> greater than value\n     but: <1> was greater than <0>"
 
 [] > less-than-float-failed-output
   [] > suggestion
@@ -42,4 +42,4 @@
       $.less-than 0.0
   assert-that > @
     suggestion
-    $.equal-to "\nExpected: <0.0> greater than value\n     but: was greater than <1.0>"
+    $.equal-to "\nExpected: <0.0> greater than value\n     but: <1.0> was greater than <0.0>"

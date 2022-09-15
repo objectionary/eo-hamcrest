@@ -189,8 +189,9 @@
 
     [] > describe-mismatch
       sprintf > @
-        "was greater than <%s>"
+        "<%s> was greater than <%s>"
         act
+        x
 
     [] > description-of
       sprintf > @
