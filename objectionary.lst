@@ -1,6 +1,17 @@
 objectionary/objects/org/eolang/hamcrest/assert-that.eo
 objectionary/tests/org/eolang/hamcrest/arrays-matchers-tests.eo
 objectionary/tests/org/eolang/hamcrest/described-as-tests.eo
+objectionary/tests/org/eolang/hamcrest/failed-output/equal-to-failed-output.eo
+objectionary/tests/org/eolang/hamcrest/failed-output/close-to-failed-output.eo
+objectionary/tests/org/eolang/hamcrest/failed-output/greater-than-failed-output.eo
+objectionary/tests/org/eolang/hamcrest/failed-output/arrays-matchers-failed-output.eo
+objectionary/tests/org/eolang/hamcrest/failed-output/anything-failed-output.eo
+objectionary/tests/org/eolang/hamcrest/failed-output/all-of-failed-output.eo
+objectionary/tests/org/eolang/hamcrest/failed-output/any-of-failed-output.eo
+objectionary/tests/org/eolang/hamcrest/failed-output/not-failed-output.eo
+objectionary/tests/org/eolang/hamcrest/failed-output/less-than-failed-output.eo
+objectionary/tests/org/eolang/hamcrest/failed-output/is-failed-output.eo
+objectionary/tests/org/eolang/hamcrest/failed-output/described-as-failed-output.eo
 objectionary/tests/org/eolang/hamcrest/close-to-tests.eo
 objectionary/tests/org/eolang/hamcrest/less-than-tests.eo
 objectionary/tests/org/eolang/hamcrest/all-of-tests.eo
