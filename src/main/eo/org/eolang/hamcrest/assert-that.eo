@@ -216,7 +216,7 @@
 
     [] > describe-mismatch
       sprintf > @
-        "<%s> differed by <%s> more than delta <%s>"
+        "<%s> differed by <%.4s> more than delta <%s>"
         act
         mismatch
         err
