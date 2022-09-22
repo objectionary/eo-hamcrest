@@ -26,10 +26,6 @@
 +package org.eolang.hamcrest.failed-output
 +version 0.0.0
 
-# @todo #41:30min To add several tests for checking
-#  close-to matcher output, when assert-that object return string
-#  and test suggestion is false. Check the origin ticket to get
-#  more information.
 [] > float-is-close-to-float-with-delta-test-failed-output
   [] > suggestion
     assert-that > @
