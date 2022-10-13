@@ -413,7 +413,7 @@
 
     [] > describe-mismatch
       sprintf > @
-        "<%s>"
+        "was <%s>"
         act
 
     [] > description-of
