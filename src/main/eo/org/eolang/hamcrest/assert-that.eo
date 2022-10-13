@@ -24,6 +24,7 @@
 +alias org.eolang.collections.list
 +alias org.eolang.txt.text
 +alias sprintf org.eolang.txt.sprintf
++alias text org.eolang.txt.text
 +home https://github.com/objectionary/eo-hamcrest
 +package org.eolang.hamcrest
 +rt jvm org.eolang:eo-hamcrest:0.0.0
@@ -402,3 +403,20 @@
             matchers
           [i]
             i.description-of > @
+
+  [str] > contains-string
+
+    [a] > match
+      contains. > @
+        text a
+        str
+
+    [] > describe-mismatch
+      sprintf > @
+        "<%s>"
+        act
+
+    [] > description-of
+      sprintf > @
+        "string contains: <%s>"
+        str
