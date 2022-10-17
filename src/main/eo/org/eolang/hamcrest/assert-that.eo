@@ -26,6 +26,7 @@
 +alias org.eolang.hamcrest.matchers.close-to-matcher
 +alias org.eolang.hamcrest.matchers.described-as-matcher
 +alias org.eolang.hamcrest.matchers.equal-to-matcher
++alias org.eolang.hamcrest.matchers.has-item-matcher
 +alias org.eolang.hamcrest.matchers.is-matcher
 +alias org.eolang.hamcrest.matchers.greater-than-matcher
 +alias org.eolang.hamcrest.matchers.less-than-matcher
@@ -116,43 +117,7 @@
 
   # Wraps an existing matcher and apply it to every item in array.
   [matcher] > has-item
-    memory 0 > mismatches
-
-    [a] > match
-      [s] > apply
-        if. > @
-          matcher.match s
-          TRUE
-          seq
-            mismatches.write
-              mismatches.with
-                matcher.describe-mismatch act
-            FALSE
-      seq > @
-        mismatches.write *
-        reducedi.
-          list
-            act
-          FALSE
-          [acc i x]
-            or. > @
-              acc
-              apply x
-
-    # @todo #37:30min This string formatting doesn't work correctly.
-    #  Here we got message like: [was <[Lorg.eolang.Phi;@1189dd52>]
-    #  and possibly we need to change code below when string manipulation
-    #  objects will be created.
-    [act] > describe-mismatch
-      sprintf > @
-        "mismatches: [%s]"
-        (text "").joined mismatches
-
-    [] > description-of
-      sprintf > @
-        "an array containing %s"
-        description-of.
-          matcher
+    has-item-matcher matcher > @
 
   # Wraps an array of matchers and apply them to every item in array.
   [matchers...] > has-items
