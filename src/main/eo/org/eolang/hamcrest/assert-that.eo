@@ -25,6 +25,7 @@
 +alias org.eolang.hamcrest.matchers.anything-matcher
 +alias org.eolang.hamcrest.matchers.array-each-matcher
 +alias org.eolang.hamcrest.matchers.close-to-matcher
++alias org.eolang.hamcrest.matchers.contains-string-matcher
 +alias org.eolang.hamcrest.matchers.described-as-matcher
 +alias org.eolang.hamcrest.matchers.equal-to-matcher
 +alias org.eolang.hamcrest.matchers.has-item-matcher
@@ -34,7 +35,6 @@
 +alias org.eolang.hamcrest.matchers.less-than-matcher
 +alias org.eolang.hamcrest.matchers.not-matcher
 +alias org.eolang.collections.list
-+alias org.eolang.txt.text
 +alias sprintf org.eolang.txt.sprintf
 +home https://github.com/objectionary/eo-hamcrest
 +package org.eolang.hamcrest
@@ -132,19 +132,7 @@
     array-each-matcher > @
       ...matchers
 
+  # Matcher that matches if the examined string contains the specified string anywhere.
   [str] > contains-string
-
-    [a] > match
-      contains. > @
-        text a
-        str
-
-    [act] > describe-mismatch
-      sprintf > @
-        "was <%s>"
-        act
-
-    [] > description-of
-      sprintf > @
-        "string contains: <%s>"
-        str
+    contains-string-matcher > @
+      str
