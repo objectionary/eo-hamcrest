@@ -27,6 +27,7 @@
 +alias org.eolang.hamcrest.matchers.described-as-matcher
 +alias org.eolang.hamcrest.matchers.equal-to-matcher
 +alias org.eolang.hamcrest.matchers.has-item-matcher
++alias org.eolang.hamcrest.matchers.has-items-matcher
 +alias org.eolang.hamcrest.matchers.is-matcher
 +alias org.eolang.hamcrest.matchers.greater-than-matcher
 +alias org.eolang.hamcrest.matchers.less-than-matcher
@@ -121,54 +122,8 @@
 
   # Wraps an array of matchers and apply them to every item in array.
   [matchers...] > has-items
-    memory 0 > mismatches
-
-    [a] > all-match
-      memory 0 > count
-      seq > @
-        count.write 0
-        while.
-          and.
-            count.lt (matchers.length)
-            count.gte 0
-          [i]
-            if. > @
-              (matchers.at i).match a
-              count.write (i.plus 1)
-              seq
-                mismatches.write
-                  mismatches.with
-                    describe-mismatch.
-                      matchers.at i
-                      act
-                count.write -1
-        count.gt 0
-
-    [a] > match
-      seq > @
-        mismatches.write *
-        reducedi.
-          list
-            act
-          FALSE
-          [acc i el]
-            or. > @
-              acc
-              all-match el
-
-    [act] > describe-mismatch
-      sprintf > @
-        "mismatches: [%s]"
-        (text ", ").joined mismatches
-
-    [] > description-of
-      joined. > @
-        text " and "
-        mapped.
-          list
-            matchers
-          [i]
-            i.description-of > @
+    has-items-matcher > @
+      ...matchers
 
   # Matcher for array whose elements satisfy a sequence of matchers.
   # The array size must equal the number of element matchers.
