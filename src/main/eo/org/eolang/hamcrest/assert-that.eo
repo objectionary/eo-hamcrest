@@ -21,6 +21,8 @@
 # SOFTWARE.
 
 +alias number org.eolang.math.number
++alias org.eolang.hamcrest.matchers.anything-matcher
++alias org.eolang.hamcrest.matchers.equal-to-matcher
 +alias org.eolang.collections.list
 +alias org.eolang.txt.text
 +alias sprintf org.eolang.txt.sprintf
@@ -49,24 +51,11 @@
         matcher
       describe-mismatch.
         matcher
+        act
 
   # Is the value equal to another value
   [x] > equal-to
-
-    [a] > match
-      eq. > @
-        x
-        a
-
-    [] > describe-mismatch
-      sprintf > @
-        "was <%s>"
-        act
-
-    [] > description-of
-      sprintf > @
-        "<%s> equal to value"
-        x
+    equal-to-matcher x > @
 
   # Calculates the logical negation of a matcher
   [matcher] > not
@@ -75,10 +64,10 @@
       not. > @
         matcher.match a
 
-    [] > describe-mismatch
+    [act] > describe-mismatch
       sprintf > @
         "%s"
-        matcher.describe-mismatch
+        matcher.describe-mismatch act
 
     [] > description-of
       sprintf > @
@@ -109,10 +98,11 @@
                 mismatch.write
                   describe-mismatch.
                     matchers.at i
+                    act
                 count.write -1
         count.gt 0
 
-    [] > describe-mismatch
+    [act] > describe-mismatch
       sprintf > @
         "a value %s"
         mismatch
@@ -146,7 +136,7 @@
               count.write (i.plus 1)
         count.lt 0
 
-    [] > describe-mismatch
+    [act] > describe-mismatch
       sprintf > @
         "a value was <%s>"
         actual
@@ -169,7 +159,7 @@
         a
         x
 
-    [] > describe-mismatch
+    [act] > describe-mismatch
       sprintf > @
         "was less than <%s>"
         act
@@ -188,7 +178,7 @@
         a
         x
 
-    [] > describe-mismatch
+    [act] > describe-mismatch
       sprintf > @
         "<%s> was greater than <%s>"
         act
@@ -215,7 +205,7 @@
             number (a.minus operand)
           err
 
-    [] > describe-mismatch
+    [act] > describe-mismatch
       sprintf > @
         "<%s> differed by <%.4s> more than delta <%s>"
         act
@@ -242,15 +232,7 @@
 
   # A matcher that always returns true.
   [] > anything
-
-    [a] > match
-      TRUE > @
-
-    [] > describe-mismatch
-      "anything" > @
-
-    [] > description-of
-      "anything" > @
+    anything-matcher > @
 
   # Wraps an existing matcher, overriding its description with that specified.
   # All other functions are delegated to the decorated matcher,
@@ -279,7 +261,7 @@
           seq
             mismatches.write
               mismatches.with
-                matcher.describe-mismatch
+                matcher.describe-mismatch act
             FALSE
       seq > @
         mismatches.write *
@@ -296,7 +278,7 @@
     #  Here we got message like: [was <[Lorg.eolang.Phi;@1189dd52>]
     #  and possibly we need to change code below when string manipulation
     #  objects will be created.
-    [] > describe-mismatch
+    [act] > describe-mismatch
       sprintf > @
         "mismatches: [%s]"
         (text "").joined mismatches
@@ -328,6 +310,7 @@
                   mismatches.with
                     describe-mismatch.
                       matchers.at i
+                      act
                 count.write -1
         count.gt 0
 
@@ -343,7 +326,7 @@
               acc
               all-match el
 
-    [] > describe-mismatch
+    [act] > describe-mismatch
       sprintf > @
         "mismatches: [%s]"
         (text ", ").joined mismatches
@@ -388,10 +371,11 @@
                       mismatches.with
                         describe-mismatch.
                           matchers.at i
+                          act
                     FALSE
         FALSE
 
-    [] > describe-mismatch
+    [act] > describe-mismatch
       sprintf > @
         "mismatches: [%s]"
         (text ", ").joined mismatches
@@ -411,7 +395,7 @@
         text a
         str
 
-    [] > describe-mismatch
+    [act] > describe-mismatch
       sprintf > @
         "was <%s>"
         act
