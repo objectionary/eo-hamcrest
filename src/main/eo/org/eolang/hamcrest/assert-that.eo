@@ -20,12 +20,13 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-+alias number org.eolang.math.number
 +alias org.eolang.hamcrest.matchers.all-of-matcher
 +alias org.eolang.hamcrest.matchers.any-of-matcher
 +alias org.eolang.hamcrest.matchers.anything-matcher
++alias org.eolang.hamcrest.matchers.close-to-matcher
 +alias org.eolang.hamcrest.matchers.equal-to-matcher
 +alias org.eolang.hamcrest.matchers.greater-than-matcher
++alias org.eolang.hamcrest.matchers.less-than-matcher
 +alias org.eolang.hamcrest.matchers.not-matcher
 +alias org.eolang.collections.list
 +alias org.eolang.txt.text
@@ -84,51 +85,14 @@
   # Compare object that matches when the examined object
   # is less than the specified value
   [x] > less-than
-
-    [a] > match
-      lt. > @
-        a
-        x
-
-    [act] > describe-mismatch
-      sprintf > @
-        "<%s> was greater than <%s>"
-        act
-        x
-
-    [] > description-of
-      sprintf > @
-        "<%s> greater than value"
-        x
+    less-than-matcher x > @
 
   # Compare object that matches when an examined float
   # is equal to the specified operand, within a range of +/- error.
   [operand err] > close-to
-
-    memory 0 > mismatch
-
-    [a] > match
-      seq > @
-        mismatch.write actual-delta
-        actual-delta.lte 0.0
-      [] > actual-delta
-        minus. > @
-          abs.
-            number (a.minus operand)
-          err
-
-    [act] > describe-mismatch
-      sprintf > @
-        "<%s> differed by <%.4s> more than delta <%s>"
-        act
-        mismatch
-        err
-
-    [] > description-of
-      sprintf > @
-        "a numeric value within <%s> of <%s>"
-        operand
-        err
+    close-to-matcher > @
+      operand
+      err
 
   # Decorates another Matcher, retaining the behaviour
   # but allowing tests to be slightly more expressive.
