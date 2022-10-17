@@ -24,7 +24,9 @@
 +alias org.eolang.hamcrest.matchers.any-of-matcher
 +alias org.eolang.hamcrest.matchers.anything-matcher
 +alias org.eolang.hamcrest.matchers.close-to-matcher
++alias org.eolang.hamcrest.matchers.described-as-matcher
 +alias org.eolang.hamcrest.matchers.equal-to-matcher
++alias org.eolang.hamcrest.matchers.is-matcher
 +alias org.eolang.hamcrest.matchers.greater-than-matcher
 +alias org.eolang.hamcrest.matchers.less-than-matcher
 +alias org.eolang.hamcrest.matchers.not-matcher
@@ -97,14 +99,7 @@
   # Decorates another Matcher, retaining the behaviour
   # but allowing tests to be slightly more expressive.
   [matcher] > is
-
-    matcher > @
-
-    [] > description-of
-      sprintf > @
-        "is %s"
-        description-of.
-          matcher
+    is-matcher matcher > @
 
   # A matcher that always returns true.
   [] > anything
@@ -114,16 +109,10 @@
   # All other functions are delegated to the decorated matcher,
   # including its mismatch description.
   [matcher format args...] > described-as
-
-    matcher > @
-
-    # @todo #3:45min Here we got an object printed
-    #  instead of data. The .map [i] i.as-string didn't work.
-    #  We need to convert varargs to data[] somehow.
-    [] > description-of
-      sprintf > @
-        format
-        args
+    described-as-matcher > @
+      matcher
+      format
+      ...args
 
   # Wraps an existing matcher and apply it to every item in array.
   [matcher] > has-item
