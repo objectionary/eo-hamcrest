@@ -35,6 +35,7 @@
 +alias org.eolang.hamcrest.matchers.less-than-matcher
 +alias org.eolang.hamcrest.matchers.not-matcher
 +alias org.eolang.hamcrest.matchers.string-ends-with-matcher
++alias org.eolang.hamcrest.matchers.string-starts-with-matcher
 +alias org.eolang.collections.list
 +alias sprintf org.eolang.txt.sprintf
 +home https://github.com/objectionary/eo-hamcrest
@@ -137,7 +138,13 @@
   [str] > contains-string
     contains-string-matcher > @
       str
+
   # Tests if the argument is a string that ends with a specific substring.
   [str] > string-ends-with
     string-ends-with-matcher > @
+      str
+
+  # Tests if the argument is a string that starts with a specific substring.
+  [str] > string-starts-with
+    string-starts-with-matcher > @
       str
