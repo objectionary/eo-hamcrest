@@ -39,8 +39,8 @@
 
   [act] > describe-mismatch
     sprintf > @
-      "<%s> could not generate given string"
-      str
+      "the string was <%s>"
+      act
 
   [] > description-of
     sprintf > @

@@ -34,4 +34,4 @@
         "/($[0-9])/"
   assert-that > @
     suggestion
-    $.equal-to "\nExpected: a string matching the pattern </($[0-9])/>\n     but: </($[0-9])/> could not generate given string"
+    $.equal-to "\nExpected: a string matching the pattern </($[0-9])/>\n     but: the string was <abc>"
