@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2020-2022 Graur Andrew
+# Copyright (c) 2022 Graur Andrew
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -20,44 +20,29 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-+alias org.eolang.hamcrest.assert-that
++alias org.eolang.txt.regex
++alias org.eolang.txt.sprintf
 +home https://github.com/objectionary/eo-hamcrest
-+junit
-+package org.eolang.hamcrest
++package org.eolang.hamcrest.matchers
++rt jvm org.eolang:eo-hamcrest:0.0.0
 +version 0.0.0
 
-[] > gen-by-regex-alphabetical-test
-  assert-that > @
-    "abc"
-    $.gen-by-regex
-      "/([a-z])/"
+# Checks if given string can be generated
+# by the regular expression.
+[str] > matches-regex-matcher
 
-[] > gen-by-regex-dollar-test
-  assert-that > @
-    "$12"
-    $.gen-by-regex
-      "/($[0-9]*)/"
+  [a] > match
+    matches. > @
+      compile.
+        regex str
+      a
 
-[] > gen-by-regex-multiline-test
-  assert-that > @
-    "1 bottle of water on the wall. \\n1 bottle of water."
-    $.gen-by-regex
-      "/(^([0-9]+).*)/m"
+  [act] > describe-mismatch
+    sprintf > @
+      "<%s> could not generate given string"
+      str
 
-[] > gen-by-regex-dotall-test
-  assert-that > @
-    "too \\n many \\n line \\n Feed\\n"
-    $.gen-by-regex
-      "/(.*)/s"
-
-[] > gen-by-regex-comments-test
-  assert-that > @
-    "4"
-    $.gen-by-regex
-      "/(\\d) #ignore this comment/x"
-
-[] > gen-by-regex-unicode-test
-  assert-that > @
-    "Yıldırım"
-    $.gen-by-regex
-      "/(yildirim)/ui"
+  [] > description-of
+    sprintf > @
+      "a string matching the pattern <%s>"
+      str
