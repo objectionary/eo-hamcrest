@@ -24,6 +24,7 @@
 +alias org.eolang.hamcrest.matchers.any-of-matcher
 +alias org.eolang.hamcrest.matchers.anything-matcher
 +alias org.eolang.hamcrest.matchers.array-each-matcher
++alias org.eolang.hamcrest.matchers.blank-string-matcher
 +alias org.eolang.hamcrest.matchers.close-to-matcher
 +alias org.eolang.hamcrest.matchers.contains-string-matcher
 +alias org.eolang.hamcrest.matchers.described-as-matcher
@@ -160,3 +161,7 @@
   [str] > is-substring
     is-substring-matcher > @
       str
+
+  # Tests if the examined string contains zero or more whitespace characters and nothing else.
+  [] > blank-string
+    blank-string-matcher > @
