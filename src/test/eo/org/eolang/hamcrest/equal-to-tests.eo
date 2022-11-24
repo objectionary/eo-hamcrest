@@ -21,6 +21,7 @@
 # SOFTWARE.
 
 +alias org.eolang.hamcrest.assert-that
++alias org.eolang.hamcrest.assert-twice-that
 +home https://github.com/objectionary/eo-hamcrest
 +junit
 +package org.eolang.hamcrest
@@ -30,6 +31,21 @@
   assert-that > @
     4.plus 4
     $.equal-to 8
+    "sum of two numbers"
+
+[] > two-sum-assert-twice-that
+  assert-twice-that > @
+    4.plus 4
+    $.equal-to 8
+    "sum of two numbers"
+
+[] > two-sum-assert-twice-that-pass
+  memory 0 > count
+  [] > foo
+    count.write (count.plus 1) > @
+  assert-twice-that > @
+    foo
+    $.equal-to 2
     "sum of two numbers"
 
 [] > two-strings-test
