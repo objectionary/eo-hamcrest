@@ -59,7 +59,7 @@
         1.0
     $.equal-to 1.0
 
-[] > check-switch-close-3
+[] > check-switch-close-4
   assert-that > @
     switch
       *
@@ -68,6 +68,5 @@
           *
             TRUE
             1.0
-    $.close-to
+    $.equal-to
       1.0
-      0.1
