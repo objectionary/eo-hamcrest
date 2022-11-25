@@ -40,3 +40,34 @@
   assert-that > @
     -123456789.123456
     $.close-to -123456789.0 0.2
+
+[] > check-switch-close-1
+  assert-that > @
+    switch
+      *
+        TRUE
+        1.0
+    $.close-to
+      1.0
+      0.1
+
+[] > check-switch-close-2
+  assert-that > @
+    switch
+      *
+        TRUE
+        1.0
+    $.equal-to 1.0
+
+[] > check-switch-close-3
+  assert-that > @
+    switch
+      *
+        TRUE
+        switch
+          *
+            TRUE
+            1.0
+    $.close-to
+      1.0
+      0.1
