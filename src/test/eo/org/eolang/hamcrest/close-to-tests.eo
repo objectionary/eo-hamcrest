@@ -41,7 +41,7 @@
     -123456789.123456
     $.close-to -123456789.0 0.2
 
-[] > switch-in-switch-in-switch-close-to
+[] > switch-in-switch-in-switch-equal-to
   assert-that > @
     switch
       *
@@ -53,6 +53,5 @@
               *
                 TRUE
                 1.0
-    $.close-to
+    $.equal-to
       1.0
-      0.1
