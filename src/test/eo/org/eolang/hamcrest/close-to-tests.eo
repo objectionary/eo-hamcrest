@@ -41,7 +41,7 @@
     -123456789.123456
     $.close-to -123456789.0 0.2
 
-[] > check-switch-close-3
+[] > switch-in-switch-in-switch-close-to
   assert-that > @
     switch
       *
@@ -49,7 +49,10 @@
         switch
           *
             TRUE
-            1.0
+            switch
+              *
+                TRUE
+                1.0
     $.close-to
       1.0
       0.1
