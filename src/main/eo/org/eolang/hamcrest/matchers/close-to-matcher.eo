@@ -32,16 +32,37 @@
 [operand err] > close-to-matcher
 
   memory 0 > mismatch
+  memory 0 > error-template
+  "<%s> differed by <%.4s> more than delta <%s>" > float-errror-message
+  "types was missmatched" > wrong-type-error-message
 
   [a] > match
-    seq > @
-      mismatch.write actual-delta
-      actual-delta.lte 0.0
+    if. > @
+      and.
+        is-float.
+          number operand
+        is-float.
+          number a
+        is-float.
+          number err
+      seq
+        mismatch.write actual-delta
+        actual-delta.lte 0.0
+      seq
+        error-template.write wrong-type-error-message
+        FALSE
+
     [] > actual-delta
       minus. > @
-        abs.
-          number (a.minus operand)
+        float-abs
+          a.minus operand
         err
+
+    [value] > float-abs
+      if. > @
+        value.gte 0.0
+        value
+        value.neg
 
   [act] > describe-mismatch
     sprintf > @
@@ -52,6 +73,6 @@
 
   [] > description-of
     sprintf > @
-      "a numeric value within <%s> of <%s>"
+      "a float value within <%s> of <%s>"
       operand
       err
