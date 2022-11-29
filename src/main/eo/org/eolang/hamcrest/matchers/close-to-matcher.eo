@@ -32,9 +32,6 @@
 [operand err] > close-to-matcher
 
   memory 0 > mismatch
-  memory 0 > error-template
-  "<%s> differed by <%.4s> more than delta <%s>" > float-errror-message
-  "types was missmatched" > wrong-type-error-message
 
   [a] > match
     if. > @
@@ -49,8 +46,7 @@
         mismatch.write actual-delta
         actual-delta.lte 0.0
       seq
-        error-template.write wrong-type-error-message
-        FALSE
+        error "some of the given arguments are not floats"
 
     [] > actual-delta
       minus. > @
