@@ -50,3 +50,16 @@
     $.close-to
       1.0
       0.1
+
+[] > slow-test-with-switch
+  assert-that > @
+    switch
+      *
+        TRUE
+        switch
+          *
+            TRUE
+            1.0
+    $.close-to
+      1.0
+      0.1
