@@ -28,6 +28,7 @@
 +alias org.eolang.hamcrest.matchers.close-to-matcher
 +alias org.eolang.hamcrest.matchers.contains-string-matcher
 +alias org.eolang.hamcrest.matchers.described-as-matcher
++alias org.eolang.hamcrest.matchers.empty-string-matcher
 +alias org.eolang.hamcrest.matchers.equal-to-matcher
 +alias org.eolang.hamcrest.matchers.greater-than-matcher
 +alias org.eolang.hamcrest.matchers.has-item-matcher
@@ -165,3 +166,7 @@
   # Tests if the examined string contains zero or more whitespace characters and nothing else.
   [] > blank-string
     blank-string-matcher > @
+
+  # Tests if the examined string contains zero characters and nothing else.
+  [] > empty-string
+    empty-string-matcher > @
