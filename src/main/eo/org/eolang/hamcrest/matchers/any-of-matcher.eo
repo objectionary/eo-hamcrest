@@ -34,19 +34,16 @@
 [matchers...] > any-of-matcher
 
   [a] > match
-    memory 0 > count
-    seq > @
-      count.write 0
-      while.
-        and.
-          count.lt (matchers.length)
-          count.gte 0
-        [i]
-          if. > @
+    reducedi. > @
+      list matchers
+      FALSE
+      [acc i x]
+        if. > @
+          or.
+            acc.eq TRUE
             (matchers.at i).match a
-            count.write -1
-            count.write (i.plus 1)
-      count.lt 0
+          TRUE
+          FALSE
 
   [act] > describe-mismatch
     sprintf > @
