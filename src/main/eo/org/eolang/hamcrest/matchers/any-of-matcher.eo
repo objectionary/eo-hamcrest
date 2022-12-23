@@ -38,12 +38,9 @@
       list matchers
       FALSE
       [acc i x]
-        if. > @
-          or.
-            acc.eq TRUE
-            (matchers.at i).match a
-          TRUE
-          FALSE
+        or. > @
+          acc
+          x.match a
 
   [act] > describe-mismatch
     sprintf > @

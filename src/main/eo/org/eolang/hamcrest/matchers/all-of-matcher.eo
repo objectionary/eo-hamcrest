@@ -36,24 +36,21 @@
   memory 0 > mismatch
 
   [a] > match
-    memory 0 > count
-    seq > @
-      count.write 0
-      while.
-        and.
-          count.lt (matchers.length)
-          count.gte 0
-        [i]
-          if. > @
-            (matchers.at i).match a
-            count.write (i.plus 1)
-            seq
-              mismatch.write
-                describe-mismatch.
-                  matchers.at i
-                  a
-              count.write -1
-      count.gt 0
+    reducedi. > @
+      list matchers
+      TRUE
+      [acc i x]
+        if. > @
+          and.
+            acc
+            x.match a
+          TRUE
+          seq
+            mismatch.write
+              describe-mismatch.
+                x
+                a
+            FALSE
 
   [act] > describe-mismatch
     sprintf > @
