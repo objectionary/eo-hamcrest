@@ -1,6 +1,6 @@
 # MIT License
 #
-# Copyright (c) 2020-2022 Graur Andrew
+# Copyright (c) 2022 Graur Andrew
 #
 # Permission is hereby granted, free of charge, to any person obtaining a copy
 # of this software and associated documentation files (the "Software"), to deal
@@ -20,48 +20,50 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-+alias org.eolang.hamcrest.assert-that
-+alias org.eolang.hamcrest.assert-twice-that
++alias org.eolang.collections.list
++alias org.eolang.txt.text
++alias sprintf org.eolang.txt.sprintf
 +home https://github.com/objectionary/eo-hamcrest
-+junit
-+package org.eolang.hamcrest
++package org.eolang.hamcrest.matchers
++rt jvm org.eolang:eo-hamcrest:0.3.0
 +version 0.3.0
 
-[] > two-sum-test
-  assert-that > @
-    4.plus 4
-    $.equal-to 8
-    "sum of two numbers"
+# Wraps an existing matcher and apply it to every item in array.
+[matcher] > has-item-matcher
+  memory 0 > mismatches
 
-[] > two-sum-assert-twice-that
-  assert-twice-that > @
-    4.plus 4
-    $.equal-to 8
-    "sum of two numbers"
+  [a] > match
+    [s] > apply
+      if. > @
+        matcher.match s
+        TRUE
+        seq
+          mismatches.write
+            mismatches.with
+              matcher.describe-mismatch a
+          FALSE
+    seq > @
+      mismatches.write *
+      reducedi.
+        list
+          a
+        FALSE
+        [acc i x]
+          or. > @
+            acc
+            apply x
 
-[] > two-sum-assert-twice-that-pass
-  memory 0 > count
-  [] > foo
-    count.write (count.plus 1) > @
-  assert-twice-that > @
-    foo
-    $.equal-to 2
-    "sum of two numbers"
+  # @todo #37:30min This string formatting doesn't work correctly.
+  #  Here we got message like: [was <[Lorg.eolang.Phi;@1189dd52>]
+  #  and possibly we need to change code below when string manipulation
+  #  objects will be created.
+  [act] > describe-mismatch
+    sprintf > @
+      "mismatches: [%s]"
+      (text "").joined mismatches
 
-[] > two-strings-test
-  assert-that > @
-    "vice"
-    $.equal-to "vice"
-    "two strings"
-
-[] > two-floats-sum-test
-  assert-that > @
-    4.1.plus 3.9
-    $.equal-to 8.0
-    "sum of two floats"
-
-[] > two-bools-test
-  assert-that > @
-    FALSE.not
-    $.equal-to TRUE
-    "two bools"
+  [] > description-of
+    sprintf > @
+      "an array containing %s"
+      description-of.
+        matcher
