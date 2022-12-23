@@ -34,10 +34,10 @@
 [matchers...] > any-of-matcher
 
   [a] > match
-    reducedi. > @
+    reduced. > @
       list matchers
       FALSE
-      [acc i x]
+      [acc x]
         or. > @
           acc
           x.match a

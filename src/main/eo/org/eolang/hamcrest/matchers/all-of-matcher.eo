@@ -36,26 +36,18 @@
   memory 0 > mismatch
 
   [a] > match
-    reducedi. > @
+    reduced. > @
       list matchers
       TRUE
-      [acc i x]
-        if. > @
-          and.
-            acc
-            x.match a
-          TRUE
-          seq
-            mismatch.write
-              describe-mismatch.
-                x
-                a
-            FALSE
+      [acc x]
+        and. > @
+          acc
+          x.match a
 
   [act] > describe-mismatch
     sprintf > @
-      "a value %s"
-      mismatch
+      "a value was <%s>"
+      act
 
   [] > description-of
     joined. > @
