@@ -53,42 +53,32 @@
 # Main object for assertions with multiply dataization of actual object.
 # It should dataize twice only when we get FALSE mathcing result from the first dataization.
 [actual matcher reasons...] > assert-twice-that
+  actual > act!
 
-  compare > @
-
-  [] > compare
-    memory 0 > act
-    memory 0 > count
-    [a] > fail
-      sprintf > @
-        "%s\nExpected: %s\n     but: %s"
-        if.
-          is-empty.
-            list
-              reasons
-          ""
-          reasons.at 0
-        description-of.
-          matcher
-        describe-mismatch.
-          matcher
-          a
+  [cond m a] > assert
     if. > @
-      while.
-        count.lt 2
-        [i]
-          actual > a!
-          if. > @
-            matcher.match a
-            seq
-              count.write 2
-              TRUE
-            seq
-              count.write (count.plus 1)
-              act.write a
-              FALSE
+      m.match a
       TRUE
-      fail act
+      if.
+        cond
+        assert FALSE m a
+        FALSE
+  if. > @
+    assert TRUE matcher actual
+    TRUE
+    sprintf
+      "%s\nExpected: %s\n     but: %s"
+      if.
+        is-empty.
+          list
+            reasons
+        ""
+        reasons.at 0
+      description-of.
+        matcher
+      describe-mismatch.
+        matcher
+        act
 
   # Is the value equal to another value
   [x] > equal-to
