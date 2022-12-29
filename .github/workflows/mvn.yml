@@ -4,9 +4,11 @@ on:
   push:
     branches:
       - master
+    paths-ignore: ['README.md', 'LICENSE.txt']
   pull_request:
     branches:
       - master
+    paths-ignore: ['README.md', 'LICENSE.txt']
 jobs:
   mvn:
     runs-on: ${{ matrix.os }}
