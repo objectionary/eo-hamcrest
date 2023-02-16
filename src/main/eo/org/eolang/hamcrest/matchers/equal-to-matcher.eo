@@ -28,7 +28,6 @@
 
 # Is the value equal to another value
 [x] > equal-to-matcher
-
   [a] > match
     eq. > @
       x
