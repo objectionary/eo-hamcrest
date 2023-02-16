@@ -32,7 +32,6 @@
 # Evaluation is shortcut, so subsequent matchers are not called
 # if an earlier matcher returns false.
 [matchers...] > all-of-matcher
-
   memory 0 > mismatch
 
   [a] > match
