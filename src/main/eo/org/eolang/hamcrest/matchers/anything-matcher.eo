@@ -27,7 +27,6 @@
 
 # A matcher that always returns true.
 [] > anything-matcher
-
   [a] > match
     TRUE > @
 
