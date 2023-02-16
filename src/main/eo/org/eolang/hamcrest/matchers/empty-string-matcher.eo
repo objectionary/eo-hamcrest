@@ -29,7 +29,6 @@
 
 # Tests if the examined string contains zero characters and nothing else.
 [] > empty-string-matcher
-
   [a] > match
     text a > str!
     eq. > @
