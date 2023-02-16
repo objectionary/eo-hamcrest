@@ -29,7 +29,6 @@
 
 # Matcher that matches if the examined string contains the specified string anywhere.
 [str] > contains-string-matcher
-
   [a] > match
     contains. > @
       text a
