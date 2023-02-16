@@ -30,7 +30,6 @@
 # Compare object that matches when an examined float
 # is equal to the specified operand, within a range of +/- error.
 [operand err] > close-to-matcher
-
   memory 0 > mismatch
 
   [a] > match
