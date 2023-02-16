@@ -29,7 +29,6 @@
 
 # Tests if the examined string contains zero or more whitespace characters and nothing else.
 [] > blank-string-matcher
-
   [a] > match
     text a > str!
     or. > @
