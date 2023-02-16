@@ -28,7 +28,6 @@
 
 # Calculates the logical negation of a matcher
 [matcher] > not-matcher
-
   [a] > match
     not. > @
       matcher.match a
