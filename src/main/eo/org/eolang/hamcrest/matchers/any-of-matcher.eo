@@ -32,7 +32,6 @@
 # Evaluation is shortcut, so subsequent matchers are not called
 # if an earlier matcher returns true.
 [matchers...] > any-of-matcher
-
   [a] > match
     reduced. > @
       list matchers
