@@ -29,7 +29,6 @@
 # Compare object that matches when the examined object
 # is less than the specified value
 [x] > less-than-matcher
-
   [a] > match
     lt. > @
       a
