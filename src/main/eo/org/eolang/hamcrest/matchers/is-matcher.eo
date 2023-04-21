@@ -29,7 +29,6 @@
 # Decorates another Matcher, retaining the behaviour
 # but allowing tests to be slightly more expressive.
 [matcher] > is-matcher
-
   matcher > @
 
   [] > description-of

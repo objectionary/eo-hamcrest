@@ -29,7 +29,6 @@
 # Compare object that matches when the examined object
 # is greater than the specified value
 [x] > greater-than-matcher
-
   [a] > match
     gt. > @
       a

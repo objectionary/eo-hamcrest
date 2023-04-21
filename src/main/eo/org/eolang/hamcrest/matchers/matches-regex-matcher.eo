@@ -30,7 +30,6 @@
 # Checks if given string can be generated
 # by the regular expression.
 [str] > matches-regex-matcher
-
   [a] > match
     matches. > @
       compile.

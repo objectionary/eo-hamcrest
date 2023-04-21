@@ -31,7 +31,6 @@
 # Matcher for array whose elements satisfy a sequence of matchers.
 # The array size must equal the number of element matchers.
 [matchers...] > array-each-matcher
-
   memory 0 > mismatches
 
   [a] > match

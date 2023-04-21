@@ -29,7 +29,6 @@
 
 # Tests if the argument is a string that starts with a specific substring.
 [str] > string-starts-with-matcher
-
   [a] > match
     starts-with. > @
       text a

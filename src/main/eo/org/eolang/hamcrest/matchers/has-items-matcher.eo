@@ -34,25 +34,20 @@
 
   [a] > all-match
     a > act!
-    memory 0 > count
-    seq > @
-      count.write 0
-      while.
-        and.
-          count.lt (matchers.length)
-          count.gte 0
-        [i]
-          if. > @
-            (matchers.at i).match act
-            count.write (i.plus 1)
-            seq
-              mismatches.write
-                mismatches.with
-                  describe-mismatch.
-                    matchers.at i
-                    act
-              count.write -1
-      count.gt 0
+    reduced. > @
+      list matchers
+      FALSE
+      [acc x]
+        if. > @
+          x.match act
+          TRUE
+          seq
+            mismatches.write
+              mismatches.with
+                describe-mismatch.
+                  x
+                  act
+            acc
 
   [a] > match
     a > act!

@@ -32,33 +32,21 @@
 # Evaluation is shortcut, so subsequent matchers are not called
 # if an earlier matcher returns false.
 [matchers...] > all-of-matcher
-
   memory 0 > mismatch
 
   [a] > match
-    memory 0 > count
-    seq > @
-      count.write 0
-      while.
-        and.
-          count.lt (matchers.length)
-          count.gte 0
-        [i]
-          if. > @
-            (matchers.at i).match a
-            count.write (i.plus 1)
-            seq
-              mismatch.write
-                describe-mismatch.
-                  matchers.at i
-                  a
-              count.write -1
-      count.gt 0
+    reduced. > @
+      list matchers
+      TRUE
+      [acc x]
+        and. > @
+          acc
+          x.match a
 
   [act] > describe-mismatch
     sprintf > @
-      "a value %s"
-      mismatch
+      "a value was <%s>"
+      act
 
   [] > description-of
     joined. > @

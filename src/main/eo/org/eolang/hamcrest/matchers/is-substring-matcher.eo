@@ -29,7 +29,6 @@
 
 # Tests if the argument is a substring of the actual string.
 [str] > is-substring-matcher
-
   [a] > match
     contains. > @
       text a

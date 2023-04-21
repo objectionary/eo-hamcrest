@@ -29,7 +29,6 @@
 
 # Tests if the argument is a string that ends with a specific substring.
 [str] > string-ends-with-matcher
-
   [a] > match
     ends-with. > @
       text a

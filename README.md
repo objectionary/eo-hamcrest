@@ -4,8 +4,9 @@
 [![DevOps By Rultor.com](http://www.rultor.com/b/objectionary/eo-hamcrest)](http://www.rultor.com/p/objectionary/eo-hamcrest)
 [![We recommend IntelliJ IDEA](https://www.elegantobjects.org/intellij-idea.svg)](https://www.jetbrains.com/idea/)
 
-[![Maven Central](https://img.shields.io/maven-central/v/org.eolang/eo-hamcrest.svg)](https://maven-badges.herokuapp.com/maven-central/org.eolang/eo-hamcrest)
 [![mvn](https://github.com/objectionary/eo-hamcrest/actions/workflows/mvn.yml/badge.svg)](https://github.com/objectionary/eo-hamcrest/actions/workflows/mvn.yml)
+[![PDD status](http://www.0pdd.com/svg?name=objectionary/eo-hamcrest)](http://www.0pdd.com/p?name=objectionary/eo-hamcrest)
+[![Maven Central](https://img.shields.io/maven-central/v/org.eolang/eo-hamcrest.svg)](https://maven-badges.herokuapp.com/maven-central/org.eolang/eo-hamcrest)
 [![codecov](https://codecov.io/gh/objectionary/eo-hamcrest/branch/master/graph/badge.svg)](https://codecov.io/gh/objectionary/eo-hamcrest)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/Graur/eo-tests/blob/master/LICENSE.txt)
 
