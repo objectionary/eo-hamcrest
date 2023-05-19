@@ -20,7 +20,7 @@ This is a collection of test matchers for [EO](https://www.eolang.org) in [Hamcr
 ```
 +package org.eolang
 +alias org.eolang.hamcrest.assert-that
-+junit
++tests
 
 [] > my-first-test
   assert-that > @
@@ -43,7 +43,7 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 ```
 +package org.eolang
 +alias org.eolang.hamcrest.assert-that
-+junit
++tests
 
 [] > core-matchers-test
   assert-that > @
@@ -63,7 +63,7 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 ```
 +package org.eolang
 +alias org.eolang.hamcrest.assert-that
-+junit
++tests
 
 [] > logical-matchers-test
   assert-that > @
@@ -90,7 +90,7 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 ```
 +package org.eolang
 +alias org.eolang.hamcrest.assert-that
-+junit
++tests
 
 [] > collections-test
   assert-that > @
@@ -105,7 +105,7 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 ```
 +package org.eolang
 +alias org.eolang.hamcrest.assert-that
-+junit
++tests
 
 [] > collections-test
   assert-that > @
@@ -121,7 +121,7 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 ```
 +package org.eolang
 +alias org.eolang.hamcrest.assert-that
-+junit
++tests
 
 [] > numbers-matchers-test
   assert-that > @
@@ -142,7 +142,7 @@ Hamcrest comes with a library of useful matchers. Here are some of the most impo
 ```
 +package org.eolang
 +alias org.eolang.hamcrest.assert-that
-+junit
++tests
 
 [] > text-matchers-test
   assert-that > @
@@ -171,7 +171,7 @@ You can also implement your own matcher by passing parameter to the ```assert-th
 ```
 +package org.eolang
 +alias org.eolang.hamcrest.assert-that
-+junit
++tests
 
 [] > my-custom-matcher-test
   assert-that > @
