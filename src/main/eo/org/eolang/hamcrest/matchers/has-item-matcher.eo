@@ -48,7 +48,7 @@
         list
           a
         FALSE
-        [acc i x]
+        [acc x i]
           or. > @
             acc
             apply x

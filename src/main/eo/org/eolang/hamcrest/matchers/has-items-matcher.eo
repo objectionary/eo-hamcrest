@@ -57,7 +57,7 @@
         list
           act
         FALSE
-        [acc i el]
+        [acc el i]
           or. > @
             acc
             all-match el

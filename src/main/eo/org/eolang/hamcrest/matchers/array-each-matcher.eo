@@ -45,7 +45,7 @@
           list
             act
           TRUE
-          [acc i el]
+          [acc el i]
             and. > @
               acc
               if.

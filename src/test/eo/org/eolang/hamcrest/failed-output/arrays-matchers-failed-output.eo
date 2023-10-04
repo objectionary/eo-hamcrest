@@ -33,6 +33,7 @@
       $.array-each
         $.equal-to 1
         $.equal-to 3
-  assert-that > @
+  assert-that > res
     suggestion
     $.contains-string "\nExpected: <1> equal to value and <3> equal to value\n     but: mismatches:"
+  nop > @
