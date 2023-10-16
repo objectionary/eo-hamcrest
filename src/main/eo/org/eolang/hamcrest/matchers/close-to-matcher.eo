@@ -30,7 +30,7 @@
 # Compare object that matches when an examined float
 # is equal to the specified operand, within a range of +/- error.
 [operand err] > close-to-matcher
-  memory 0 > mismatch
+  memory 0.0 > mismatch
 
   [a] > match
     if. > @
@@ -63,7 +63,7 @@
     sprintf > @
       "<%s> differed by <%.4s> more than delta <%s>"
       act
-      mismatch
+      mismatch.as-float
       err
 
   [] > description-of

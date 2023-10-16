@@ -31,8 +31,8 @@
   memory 0 > m
   [x] > inc
     seq > @
-      m.write (m.plus x)
-      m
+      m.write (m.as-int.plus x)
+      m.as-int
   [] > suggestion
     assert-that > @
       inc
@@ -81,7 +81,7 @@
     [] > suggestion
       memory 0 > count
       [] > foo
-        count.write (count.plus 1) > @
+        count.write (count.as-int.plus 1) > @
       assert-twice-that > @
         foo
         $.equal-to 3

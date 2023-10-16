@@ -30,8 +30,8 @@
 
 # Wraps an array of matchers and apply them to every item in array.
 [matchers...] > has-items-matcher
-  memory 0 > mismatches
-
+  memory > mismatches
+    *
   [a] > all-match
     a > act!
     reduced. > @

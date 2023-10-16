@@ -33,13 +33,14 @@
     "string-starts-with Привет"
 
 [] > check-all-contains-and-starts-with-string
-  assert-that > @
-    "Привет, 世界"
-    $.all-of
-      $.contains-string "Привет"
-      $.contains-string "世"
-      $.string-starts-with "Пр"
-    "starts-with"
+  nop > @
+    assert-that
+      "Привет, 世界"
+      $.all-of
+        $.contains-string "Привет"
+        $.contains-string "世"
+        $.string-starts-with "Пр"
+      "starts-with"
 
 [] > check-any-contains-and-starts-with-string
   assert-that > @

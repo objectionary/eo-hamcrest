@@ -42,7 +42,7 @@
 [] > two-sum-assert-twice-that-pass
   memory 0 > count
   [] > foo
-    count.write (count.plus 1) > @
+    count.write (count.as-int.plus 1) > @
   assert-twice-that > @
     foo
     $.equal-to 2
