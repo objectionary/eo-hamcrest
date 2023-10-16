@@ -38,10 +38,9 @@
       $.all-of
         $.equal-to 1
       "all of numbers conditions"
-  assert-that > res
+  assert-that > @
     suggestion
     $.equal-to "all of numbers conditions\nExpected: <1> equal to value\n     but: a value was <100>"
-  nop > @
 
 [] > all-of-several-failed-output
   [] > suggestion
@@ -52,10 +51,9 @@
         $.greater-than 100
         $.less-than 2
       "all of conditions"
-  assert-that > res
+  assert-that > @
     suggestion
     $.equal-to "all of conditions\nExpected: <1> equal to value and <100> less than value and <2> greater than value\n     but: a value was <3>"
-  nop > @
 
 [] > all-of-close-to-failed-output
   [] > suggestion
@@ -68,7 +66,6 @@
         $.greater-than 100.0
         $.close-to 20.0 2.2
       "all of conditions"
-  assert-that > res
+  assert-that > @
     suggestion
     $.equal-to "all of conditions\nExpected: <1.0> equal to value and <100.0> less than value and a float value within <20.0> of <2.2>\n     but: a value was <42.0>"
-  nop > @
