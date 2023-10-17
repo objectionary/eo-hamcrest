@@ -43,10 +43,9 @@
       $.any-of
         $.is-substring "2"
       "is-substring"
-  assert-that > res
+  assert-that > @
     suggestion
     $.equal-to "is-substring\nExpected: string contains: <2>\n     but: a value was <Hello>"
-  nop > @
 
 [] > contains-all-of-string-failed
   [] > suggestion
@@ -56,11 +55,6 @@
         $.is-substring "2"
         $.is-substring "happy"
       "is-substring"
-  assert-that > res
+  assert-that > @
     suggestion
     $.equal-to "is-substring\nExpected: string contains: <2> and string contains: <happy>\n     but: a value was <so sad>"
-  nop > @
-
-
-
-

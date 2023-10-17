@@ -31,7 +31,7 @@
 # Matcher for array whose elements satisfy a sequence of matchers.
 # The array size must equal the number of element matchers.
 [matchers...] > array-each-matcher
-  memory * > mismatches
+  cage (list *).with > mismatches
 
   [a] > match
     a > act!
@@ -40,7 +40,8 @@
         matchers.length
         act.length
       seq
-        mismatches.write *
+        mismatches.write
+          (list *).with
         reducedi.
           list
             act

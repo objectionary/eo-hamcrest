@@ -30,8 +30,8 @@
 
 # Wraps an existing matcher and apply it to every item in array.
 [matcher] > has-item-matcher
-  memory > mismatches
-    list *
+  cage > mismatches
+    list.with
   [a] > match
     [s] > apply
       if. > @
@@ -44,8 +44,9 @@
           FALSE
     seq > @
       mismatches.write
-        list
-          *
+        with.
+          list
+            *
       reducedi.
         list
           a

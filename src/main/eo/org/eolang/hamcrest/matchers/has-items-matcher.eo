@@ -30,8 +30,8 @@
 
 # Wraps an array of matchers and apply them to every item in array.
 [matchers...] > has-items-matcher
-  memory > mismatches
-    *
+  cage > mismatches
+    list.with
   [a] > all-match
     a > act!
     reduced. > @
@@ -52,7 +52,8 @@
   [a] > match
     a > act!
     seq > @
-      mismatches.write *
+      mismatches.write
+        (list *).with
       reducedi.
         list
           act

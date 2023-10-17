@@ -33,10 +33,9 @@
       150.minus 50
       $.any-of
         $.equal-to 1
-  assert-that > res
+  assert-that > @
     suggestion
     $.equal-to "\nExpected: <1> equal to value\n     but: a value was <100>"
-  nop > @
 
 [] > any-of-several-failed-output
   [] > suggestion
@@ -46,10 +45,9 @@
         $.equal-to 1
         $.greater-than 100
         $.less-than -6
-  assert-that > res
+  assert-that > @
     suggestion
     $.equal-to "\nExpected: <1> equal to value or <100> less than value or <-6> greater than value\n     but: a value was <3>"
-  nop > @
 
 # @todo #149:30min To remove this nop object
 #  when this test will be stable. To do that we

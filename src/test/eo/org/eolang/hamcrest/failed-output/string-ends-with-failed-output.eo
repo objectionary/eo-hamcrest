@@ -26,6 +26,9 @@
 +tests
 +version 0.0.0
 
+# @todo #218:90min Enable the following tests when eo strings will be updated.
+#  Now they use text.contain object that was changed in new eo-runtime
+#  version.
 [] > simple-ends-with-string-failed
   [] > suggestion
     assert-that > @
