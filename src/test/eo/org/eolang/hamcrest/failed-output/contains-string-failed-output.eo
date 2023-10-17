@@ -28,7 +28,7 @@
 
 # @todo #218:90min Enable the tests when eo-strings with 0.32.0 eo-runtime
 #  will be released. Matcher contains-string uses text.contains
-#  object so it fails.
+#  object inside so it fails.
 [] > simple-contains-string-failed
   [] > suggestion
     assert-that > @

@@ -30,7 +30,7 @@
 # Matcher that matches if the examined string contains the specified string anywhere.
 # @todo #218:90min Enable the matcher when eo-strings with 0.32.0 eo-runtime
 #  will be released. Matcher contains-string uses text.contains
-#  object so it fails.
+#  object isnside so it fails.
 [str] > contains-string-matcher
   [a] > match
     nop > @
